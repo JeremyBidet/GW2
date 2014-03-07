@@ -1,0 +1,43 @@
+// ********************************************************************************************************
+// README :: /!\ A LIRE AVANT TOUTES MODIFICATIONS /!\
+// ********************************************************************************************************
+// 
+// ...
+// 
+// Vous pouvez laisser des lignes vides.
+// Les commentaires sont in-line et commencent uniquement par //... .
+// Ce fichier peut-être éditer manuellement en respectant les consignes ci-dessus.
+// Le non-respect de ces consignes peut entrainer un disfonctionnement du programme.
+// Il est recommandé d'utiliser l'outil d'ajout de recettes.
+//
+//
+//
+// Version 1.0
+//
+// 2013-2014 @ Copyright WhyT - Tous droit réservés.
+// ********************************************************************************************************
+
+"Couperet de bandit solide" 1
+	"Inscription enchantée sur plaque en fer solide" 1
+	"Hampe de hache en fer" 1
+	"Lame de hache en fer" 1
+
+"Inscription enchantée sur plaque en fer solide" 1
+	"Goujon sur plaque en fer" 2
+	"Petite ecaille" 15
+
+"Goujon sur plaque en fer" 1
+	"Planche en bois tendre" 2
+	"Lingot de fer" 3
+
+"Planche en bois tendre" 1
+	"Rondin en bois souple" 4
+
+"Lingot de fer" 1
+	"Minerai de fer" 3
+
+"Hampe de hache en fer" 1
+	"Lingot de fer" 3
+
+"Lame de hache en fer" 1
+	"Lingot de fer" 3
