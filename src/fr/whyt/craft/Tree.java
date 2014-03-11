@@ -1,5 +1,6 @@
 package fr.whyt.craft;
 
+
 /**
  * Arbre représentant la racine de l'objet à crafter.<br>
  * Il contient donc un sous-arbre ({@link SubTree}).<br>
@@ -17,6 +18,10 @@ public class Tree {
 	 */
 	public Tree (Node root) {
 		this.root = root;
+	}
+	
+	public Node getRoot() {
+		return root;
 	}
 	
 	@Override

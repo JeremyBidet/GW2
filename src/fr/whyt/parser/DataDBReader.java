@@ -40,7 +40,6 @@ import static fr.whyt.item.TypeWeapon.TORCHE;
 import static fr.whyt.item.TypeWeapon.TRIDENT;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -67,34 +66,7 @@ import fr.whyt.item.Weapon;
  * @author WhyT
  *
  */
-public class DataDBReader implements DBConnect {
-	
-	private static Pointer pointer;
-	
-	private static boolean isEmpty(String line) {
-		return line.length() < 1;
-	}
-	
-	private static boolean isCommentLine (String line) {
-		return line.charAt(0) == '/' && line.charAt(1) == '/';
-	}
-	
-	private static boolean isInvalid(String line) {
-		return !line.startsWith("\"");
-	}
-	
-	private static void getName (String line, int i) {
-		StringBuilder sb = new StringBuilder ();
-		for (int quote=0; quote!=2; i++) {
-			if (line.charAt(i) == '"') {
-				quote++;
-			} else {
-				sb.append(line.charAt(i));
-			}
-		}
-		pointer.setI(i);
-		pointer.setObject(sb.toString());
-	}
+public class DataDBReader extends DBReader {
 	
 	private static void getType (String line, int i) {
 		StringBuilder sb = new StringBuilder ();
@@ -221,12 +193,12 @@ public class DataDBReader implements DBConnect {
 		pointer.setI(i);
 		pointer.setObject(new Stat(type_stat, Integer.parseInt(sb.toString())));
 	}
-	
-	public static Set<Item> extractData () {
+
+	public static Set<Item> extractData() {
 		if(!data.exists() || !data.canRead()) {
 			return null;
 		}
-		Set<Item> items = new HashSet<Item>(lines(data)-50);
+		Set<Item> items = new HashSet<Item>(lines(data)-54, .90f);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(data));
 			pointer = new Pointer();
@@ -271,28 +243,6 @@ public class DataDBReader implements DBConnect {
 		}
 		
 		return items;
-	}
-	
-	/**
-	 * Compte le nombre de lignes dans un fichier.<br>
-	 * Le séparateur utilisé est l'espace.<br>
-	 * <br>
-	 * @param file le fichier à compter.
-	 * @return le nombre de lignes dans le fichier.
-	 */
-	private static int lines (File file) {
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(file));
-			int counter;
-			for (counter=0; br.readLine() != null; counter++);
-			br.close();
-			return counter;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return -1;
 	}
 	
 }

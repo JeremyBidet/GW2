@@ -2,10 +2,48 @@
 // README :: /!\ A LIRE AVANT TOUTES MODIFICATIONS /!\
 // ********************************************************************************************************
 // 
-// ...
+// Cette base de données répertorie les recettes du jeu.
+// Une recette est similaire à un arbre :
+// 	- une racine
+//	- des fils
+//	- des feuilles
+//
+// Chaque racine possède des fils, sauf si cette racine est une feuille.
+// Chaque fils est donc une racine sauf si ce fils est une feuille.
+// Ainsi chaque fils possède aussi des fils qui sont eux-mêmes des racines et possèdent des fils sauf
+// s'ils sont des feuilles.
+//
+// Une recette (i.e : arbre) se représente comme un arbre généalogique horizontale (voir arborescence
+// graphique d'un système de fichier, par exemple Windows).
+//
+// Sachant qu'une recette est la racine d'elle-même et qu'elle peut être un fils de plusieurs autres
+// racines, ou même un fils de fils de plusieurs racines, ou encore plusieurs fils de fils de plusieurs
+// racines, la représentation d'une recette n'est donc pas complète dans cette base de données. Elle se
+// limite donc juste au premier niveau de sa recette. Ainsi si une recette possède trois niveaux (voir
+// hauteur/profondeur des arbres), seule la racine et son prmeier niveau sont écrits, mais chaque
+// recette de ses fils doit être écrite également, et ainsi de suite, de descendant en descendant,
+// jusqu'à n'obtenir que des feuilles pour toutes les sous-recettes de cette recette.
+// Les recettes sont uniques et identifiées par le nom de la racine.
+//
+// Une recette s'écrit de ma manière suivante :
+//
+// 	"racine"
+// 		"fils 1" <quantité>
+// 		"fils 2" <quantité>
+// 		"fils 3" <quantité>
+//
+// L'indentation des fils est importante. Il s'agit d'indentation, pas d'espace. Les guillemets sont
+// obligatoires. La quantité : un nombre entier, sans les chevron (<,>).
+// Pas de lignes vierges entre les fils. Les commentaires sont autorisés entre les fils.
+// Les lignes vides sont autorisées et conseillées entre les recettes (avant la racine).
+// La racine n'a pas de quantité, par défaut une recette donne les quantités requise des fils pour
+// un exemplaire de la recette (racine).
+// Il n'est pas nécessaire d'ajouter les recettes des feuilles, celles-ci n'ayant pas de fils.
+// Toutefois, la base de données restera stable si vous souhaitez les ajouter.
 // 
-// Vous pouvez laisser des lignes vides.
 // Les commentaires sont in-line et commencent uniquement par //... .
+// Pas d'indentation pour les commentaires.
+// Les commentaires doivent être insérés sur une ligne vide : pas de mélance de données.
 // Ce fichier peut-être éditer manuellement en respectant les consignes ci-dessus.
 // Le non-respect de ces consignes peut entrainer un disfonctionnement du programme.
 // Il est recommandé d'utiliser l'outil d'ajout de recettes.
@@ -17,27 +55,27 @@
 // 2013-2014 @ Copyright WhyT - Tous droit réservés.
 // ********************************************************************************************************
 
-"Couperet de bandit solide" 1
+"Couperet de bandit solide"
 	"Inscription enchantée sur plaque en fer solide" 1
 	"Hampe de hache en fer" 1
 	"Lame de hache en fer" 1
 
-"Inscription enchantée sur plaque en fer solide" 1
+"Inscription enchantée sur plaque en fer solide"
 	"Goujon sur plaque en fer" 2
 	"Petite ecaille" 15
 
-"Goujon sur plaque en fer" 1
+"Goujon sur plaque en fer"
 	"Planche en bois tendre" 2
 	"Lingot de fer" 3
 
-"Planche en bois tendre" 1
+"Planche en bois tendre"
 	"Rondin en bois souple" 4
 
-"Lingot de fer" 1
+"Lingot de fer"
 	"Minerai de fer" 3
 
-"Hampe de hache en fer" 1
+"Hampe de hache en fer"
 	"Lingot de fer" 3
 
-"Lame de hache en fer" 1
+"Lame de hache en fer"
 	"Lingot de fer" 3

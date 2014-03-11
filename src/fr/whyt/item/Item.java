@@ -1,5 +1,6 @@
 package fr.whyt.item;
 
+
 /**
  * Représente un objet dans le jeu.<br>
  * Il possède un nom, un type, une rareté, un niveau et une valeur.<br><br>

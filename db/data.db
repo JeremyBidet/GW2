@@ -40,6 +40,8 @@
 //
 // Vous pouvez laisser des lignes vides.
 // Les commentaires sont in-line et commencent uniquement par //... .
+// Pas d'indentation pour les commentaires.
+// Les commentaires doivent être insérés sur une ligne vide : pas de mélance de données.
 // Ce fichier peut-être éditer manuellement en respectant les consignes ci-dessus.
 // Le non-respect de ces consignes peut entrainer un disfonctionnement du programme.
 // Il est recommandé d'utiliser l'outil d'ajout d'item.

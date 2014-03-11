@@ -21,6 +21,7 @@ import fr.whyt.item.Item;
 import fr.whyt.item.Stat;
 import fr.whyt.item.Weapon;
 import fr.whyt.parser.DataDBReader;
+import fr.whyt.parser.RecipeDBReader;
 
 public class Main {
 	
@@ -113,6 +114,14 @@ public class Main {
 			sb.append(item.toString());
 		}
 		System.out.println(sb.toString());
+		
+		Set<Tree> recipes = RecipeDBReader.extractTree(items);
+		sb.delete(0, sb.length());
+		for(Tree tree : recipes) {
+			sb.append(tree.toString());
+		}
+		System.out.println(sb.toString());
+		
 		
 	}
 
