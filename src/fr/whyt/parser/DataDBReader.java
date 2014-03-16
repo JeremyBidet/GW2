@@ -43,8 +43,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import fr.whyt.item.Bonus;
 import fr.whyt.item.CraftMaterial;
@@ -194,11 +194,11 @@ public class DataDBReader extends DBReader {
 		pointer.setObject(new Stat(type_stat, Integer.parseInt(sb.toString())));
 	}
 
-	public static Set<Item> extractData() {
+	public static Map<Integer, Item> extractData() {
 		if(!data.exists() || !data.canRead()) {
 			return null;
 		}
-		Set<Item> items = new HashSet<Item>(lines(data)-54, .90f);
+		Map<Integer, Item> items = new HashMap<Integer, Item>(lines(data)-54, .90f);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(data));
 			pointer = new Pointer();
@@ -230,8 +230,18 @@ public class DataDBReader extends DBReader {
 					}
 				}
 				switch (type) {
-					case ARME: items.add(new Weapon(name, scarcity, level, price, damage, bonus, type_weapon)); break;
-					case ARTISANAT: items.add(new CraftMaterial(name, scarcity, level, price)); break;
+					case ARME:
+						Item new_weapon = new Weapon(name, scarcity, level, price, damage, bonus, type_weapon);
+						if(!items.containsKey(new_weapon.getId())) {
+							items.put(new_weapon.getId(), new_weapon);
+						}
+						break;
+					case ARTISANAT:
+						Item new_craft_material = new CraftMaterial(name, scarcity, level, price);
+						if(!items.containsKey(new_craft_material.getId())) {
+							items.put(new_craft_material.getId(), new_craft_material);
+						}
+						break;
 					default: break;
 				}
 			}

@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Set;
+import java.util.Map;
 
 import fr.whyt.craft.Node;
 import fr.whyt.craft.Tree;
@@ -71,21 +70,21 @@ public class RecipeDBReader extends DBReader {
 	 * @param items le Set (unique) des items de la base de données
 	 * @return une Set contenant les recettes et sous-recettes (arbres et sous-arbres) de la base de données
 	 */
-	public static Set<Tree> extractTree (Set<Item> items) {
+	public static Map<Integer, Tree> extractTree (Map<Integer, Item> items) {
 		if(!recipe.exists() || !recipe.canRead()) {
 			return null;
 		}
-		Set<Tree> recipes = new HashSet<Tree>(lines(recipe)-56, .90f);
+		Map<Integer, Tree> recipes = new HashMap<Integer, Tree>(lines(recipe)-56, .90f);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(recipe));
 			pointer = new Pointer();
 			for (String line; (line = br.readLine()) != null; ) {
-			/* Recette */
+				/* Recette */
 				// vide ou commentaire
 				if(isEmpty(line) || isCommentLine(line)) continue;
 				// nom
 				getName(line, 0);	String name = (String)pointer.getObject();
-			/* Ingrédients */
+				/* Ingrédients */
 				Node[] sons = new Node[1];
 				int i = 0;
 				while((line = br.readLine()) != null) {
@@ -98,14 +97,18 @@ public class RecipeDBReader extends DBReader {
 					getName(line, pointer.getI());			String sub_name = (String)pointer.getObject();
 					// quantité
 					getQuantity(line, pointer.getI()+1);	int quantity = (Integer)pointer.getObject();
-					Item item = getItemByName(items.iterator(), sub_name);
-					if(i == sons.length) sons = Arrays.copyOf(sons, sons.length+1);
-					sons[i++] = new Node(quantity, Objects.requireNonNull(item), 1);
+					if(i == sons.length) {
+						sons = Arrays.copyOf(sons, sons.length+1);
+					}
+					Item temp = items.get(sub_name.toLowerCase().hashCode());
+					sons[i++] = new Node(quantity, temp, 1);
 				}
-				Item item = getItemByName(items.iterator(), name);
-				Node node = new Node(1, Objects.requireNonNull(item), 0, sons);
+				Item temp = items.get(name.toLowerCase().hashCode());
+				Node node = new Node(1, temp, 0, sons);
 				Tree tree = new Tree(node);
-				recipes.add(tree);
+				if(!recipes.containsKey(tree.getId())) {
+					recipes.put(tree.getId(), tree);
+				}
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
@@ -115,13 +118,5 @@ public class RecipeDBReader extends DBReader {
 		}
 		return recipes;
 	}
-	
-	private static Item getItemByName(Iterator<Item> it, String name) {
-		Item item;
-		while(it.hasNext()) {
-			if((item = it.next()).getName().equals(name)) return item;
-		}
-		return null;
-	}
-	
+		
 }

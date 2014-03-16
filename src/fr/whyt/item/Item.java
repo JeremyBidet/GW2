@@ -16,6 +16,7 @@ package fr.whyt.item;
  */
 public abstract class Item {
 
+	private final int id;
 	private final String name;
 	private final Type type;
 	private final Scarcity scarcity;
@@ -31,6 +32,7 @@ public abstract class Item {
 	 * @param price prix de l'item à l'achat/vente en monnaie de jeu ({@link Currency})
 	 */
 	public Item (String name, Type type, Scarcity scarcity, int level, Currency price) {
+		this.id = name.hashCode();
 		this.name = name;
 		this.type = type;
 		this.scarcity = scarcity;
@@ -47,11 +49,20 @@ public abstract class Item {
 	 * @param price prix de l'item à l'achat/vente sous forme entière (bronze)
 	 */
 	public Item (String name, Type type, Scarcity scarcity, int level, int price) {
+		this.id = name.toLowerCase().hashCode();
 		this.name = name;
 		this.type = type;
 		this.scarcity = scarcity;
 		this.level = level;
 		this.price = new Currency (price/10000, price/100%100, price%100);
+	}
+	
+	/**
+	 * Récupère l'Id de l'objet
+	 * @return l'id de l'objet
+	 */
+	public int getId() {
+		return id;
 	}
 	
 	/**

@@ -12,6 +12,7 @@ import fr.whyt.item.Item;
  *
  */
 public class Node {
+	
 	private int quantity;
 	private final Item item;
 	private int level;
@@ -58,6 +59,11 @@ public class Node {
 	 */
 	public void setQuantity (int quantity) {
 		this.quantity = quantity;
+	}
+	
+	@Override
+	public int hashCode() {
+		return item.getId();
 	}
 	
 	@Override

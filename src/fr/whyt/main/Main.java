@@ -9,7 +9,7 @@ import static fr.whyt.item.TypeStat.ROBUSTESSE;
 import static fr.whyt.item.TypeStat.VITALITE;
 import static fr.whyt.item.TypeWeapon.HACHE;
 
-import java.util.Set;
+import java.util.Map;
 
 import fr.whyt.craft.Node;
 import fr.whyt.craft.Tree;
@@ -28,7 +28,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		/***********************************************************************************/
-		
+		System.out.println("-------------- TREE TEST START --------------\n");
 		/* Crée les items de la recette */
 		Item cdbs = new Weapon(
 				"Couperet de bandit solide",
@@ -104,23 +104,20 @@ public class Main {
 									new Node(9, mdf, 3)))));
 		/* Affiche l'arbre de recette créé */
 		System.out.println(couperet_de_bandit_solide.toString());
-		
+		System.out.println("-------------- TREE TEST END --------------\n\n");
 		/***********************************************************************************/
 		
+		System.out.println("-------------- ITEMS MAP START --------------\n");
 		/* Récupère les items depuis la base de données */
-		Set<Item> items = DataDBReader.extractData();
-		StringBuilder sb = new StringBuilder();
-		for(Item item : items) {
-			sb.append(item.toString());
-		}
-		System.out.println(sb.toString());
+		Map<Integer, Item> items = DataDBReader.extractData();
+		System.out.println(items.toString());
+		System.out.println("-------------- ITEMS MAP END --------------\n\n");
 		
-		Set<Tree> recipes = RecipeDBReader.extractTree(items);
-		sb.delete(0, sb.length());
-		for(Tree tree : recipes) {
-			sb.append(tree.toString());
-		}
-		System.out.println(sb.toString());
+		System.out.println("-------------- RECIPES MAP START --------------\n");
+		/* Récupère les recettes depuis la base de données */
+		Map<Integer, Tree> recipes = RecipeDBReader.extractTree(items);
+		System.out.println(recipes.toString());
+		System.out.println("-------------- RECIPES MAP END --------------\n\n");
 		
 		
 	}

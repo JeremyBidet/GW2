@@ -10,6 +10,7 @@ package fr.whyt.craft;
  */
 public class Tree {
 
+	private final int id;
 	private final Node root;
 	
 	/**
@@ -17,6 +18,7 @@ public class Tree {
 	 * @param root
 	 */
 	public Tree (Node root) {
+		this.id = root.hashCode();
 		this.root = root;
 	}
 	
@@ -27,5 +29,9 @@ public class Tree {
 	@Override
 	public String toString () {
 		return "Recette :\n" + root.toString();
+	}
+
+	public Integer getId() {
+		return id;
 	}
 }
