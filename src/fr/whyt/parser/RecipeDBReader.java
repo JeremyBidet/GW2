@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import fr.whyt.craft.Node;
 import fr.whyt.craft.Tree;
@@ -78,37 +80,64 @@ public class RecipeDBReader extends DBReader {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(recipe));
 			pointer = new Pointer();
+			/* 0 or 1 <recipe> :
+			 * 		<group name>		<description>
+			 * 		indent			:	0 or 1 indent
+			 * 		name			:	1 " followed by 0 or more any character followed by 1 "
+			 * 		quantity		:	0 or more digit
+			 * 0 or 1 <comment> :
+			 * 		tab				:	0 or more tabulation
+			 * 		content			:	1 / followed by 1 / followed by 0 or more any character
+			 */
+			Pattern p = Pattern.compile(
+					"(?<recipe>(?<indent>\t?)(?<name>\".*\") (?<quantity>\\d*))?(?<comment>(?<tab>\\s*)(?<content>//.*)?)?");
 			for (String line; (line = br.readLine()) != null; ) {
+				Matcher m = p.matcher(line);
+				boolean b = m.matches();
+				System.out.println("line : \"" + line + "\"");
+				System.out.println("matches : " + b);
+				if(b) {
+					System.out.println(
+							"group 0 total : \"" + m.group() + "\"\n"
+							+ "group 1 recipe : \"" + m.group("recipe") + "\"\n"
+							+ "group 2 indent : \"" + m.group("indent") + "\"\n"
+							+ "group 3 name : \"" + m.group("name") + "\"\n"
+							+ "group 4 quantity : \"" + m.group("quantity") + "\"\n"
+							+ "group 5 comment : \"" + m.group("comment") + "\"\n"
+							+ "group 6 tab : \"" + m.group("tab") + "\"\n"
+							+ "group 7 content : \"" + m.group("content") + "\"\n");
+				}
+				
 				/* Recette */
 				// vide ou commentaire
-				if(isEmpty(line) || isCommentLine(line)) continue;
+//				if(isEmpty(line) || isCommentLine(line)) continue;
 				// nom
-				getName(line, 0);	String name = (String)pointer.getObject();
+//				getName(line, 0);	String name = (String)pointer.getObject();
 				/* Ingrédients */
-				Node[] sons = new Node[1];
-				int i = 0;
-				while((line = br.readLine()) != null) {
+//				Node[] sons = new Node[1];
+//				int i = 0;
+//				while((line = br.readLine()) != null) {
 					// commentaire
-					if(isCommentLine(line)) continue;
+//					if(isCommentLine(line)) continue;
 					// indentation
-					getIndent(line, 0);						int indent = (Integer)pointer.getObject();
-					if(indent == 0) break;
+//					getIndent(line, 0);						int indent = (Integer)pointer.getObject();
+//					if(indent == 0) break;
 					// nom
-					getName(line, pointer.getI());			String sub_name = (String)pointer.getObject();
+//					getName(line, pointer.getI());			String sub_name = (String)pointer.getObject();
 					// quantité
-					getQuantity(line, pointer.getI()+1);	int quantity = (Integer)pointer.getObject();
-					if(i == sons.length) {
-						sons = Arrays.copyOf(sons, sons.length+1);
-					}
-					Item temp = items.get(sub_name.toLowerCase().hashCode());
-					sons[i++] = new Node(quantity, temp, 1);
-				}
-				Item temp = items.get(name.toLowerCase().hashCode());
-				Node node = new Node(1, temp, 0, sons);
-				Tree tree = new Tree(node);
-				if(!recipes.containsKey(tree.getId())) {
-					recipes.put(tree.getId(), tree);
-				}
+//					getQuantity(line, pointer.getI()+1);	int quantity = (Integer)pointer.getObject();
+//					if(i == sons.length) {
+//						sons = Arrays.copyOf(sons, sons.length+1);
+//					}
+//					Item temp = items.get(sub_name.toLowerCase().hashCode());
+//					sons[i++] = new Node(quantity, temp, 1);
+//				}
+//				Item temp = items.get(name.toLowerCase().hashCode());
+//				Node node = new Node(1, temp, 0, sons);
+//				Tree tree = new Tree(node);
+//				if(!recipes.containsKey(tree.getId())) {
+//					recipes.put(tree.getId(), tree);
+//				}
 			}
 			br.close();
 		} catch (FileNotFoundException e) {

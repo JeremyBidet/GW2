@@ -194,7 +194,7 @@ public class DataDBReader extends DBReader {
 		pointer.setObject(new Stat(type_stat, Integer.parseInt(sb.toString())));
 	}
 
-	public static Map<Integer, Item> extractData() {
+	public static Map<Integer, Item> extractData () {
 		if(!data.exists() || !data.canRead()) {
 			return null;
 		}
