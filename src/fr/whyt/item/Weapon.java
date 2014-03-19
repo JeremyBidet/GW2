@@ -6,19 +6,19 @@ import static fr.whyt.item.Type.ARME;
  * Définie une arme du jeu.<br>
  * Hérite de la classe {@link Item}.<br>
  * <br>
- * Avec les champs : <i>damage</i>:{@link Damage}, <i>bonus</i>:{@link Bonus}, <i>weapon</i>:{@link TypeWeapon}.
+ * Avec les champs : <i>damage</i>:{@link Damage}, <i>bonus</i>:{@link Bonus}, <i>weapon</i>:{@link WeaponType}.
  * <br>
  * @author Jeremy
  *
  */
 public class Weapon extends Item {
 	
-	private final TypeWeapon weapon;
+	private final WeaponType weapon;
 	private final Damage damage;
 	private final Bonus bonus;
 
 	public Weapon(String name, Scarcity scarcity, int level, Currency price,
-			Damage damage, Bonus bonus, TypeWeapon weapon) {
+			Damage damage, Bonus bonus, WeaponType weapon) {
 		super(name, ARME, scarcity, level, price);
 		this.damage = damage;
 		this.bonus = bonus;
@@ -26,7 +26,7 @@ public class Weapon extends Item {
 	}
 
 	public Weapon(String name, Scarcity scarcity, int level, int price,
-			Damage damage, Bonus bonus, TypeWeapon weapon) {
+			Damage damage, Bonus bonus, WeaponType weapon) {
 		super(name, ARME, scarcity, level, price);
 		this.damage = damage;
 		this.bonus = bonus;

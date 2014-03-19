@@ -29,19 +29,6 @@ public abstract class DBReader implements DBConnect {
 		return !line.startsWith("\"");
 	}
 	
-	protected final static void getName (String line, int i) {
-		StringBuilder sb = new StringBuilder ();
-		for (int quote=0; quote!=2; i++) {
-			if (line.charAt(i) == '"') {
-				quote++;
-			} else {
-				sb.append(line.charAt(i));
-			}
-		}
-		pointer.setI(i);
-		pointer.setObject(sb.toString());
-	}
-	
 	/**
 	 * Compte le nombre de lignes dans un fichier.<br>
 	 * Le séparateur utilisé est l'espace.<br>

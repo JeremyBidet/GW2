@@ -4,10 +4,10 @@ import static fr.whyt.item.Scarcity.CHEF_D_OEUVRE;
 import static fr.whyt.item.Scarcity.NORMAL;
 import static fr.whyt.item.Scarcity.RAFFINE;
 import static fr.whyt.item.Scarcity.RARE;
-import static fr.whyt.item.TypeStat.PUISSANCE;
-import static fr.whyt.item.TypeStat.ROBUSTESSE;
-import static fr.whyt.item.TypeStat.VITALITE;
-import static fr.whyt.item.TypeWeapon.HACHE;
+import static fr.whyt.item.StatType.PUISSANCE;
+import static fr.whyt.item.StatType.ROBUSTESSE;
+import static fr.whyt.item.StatType.VITALITE;
+import static fr.whyt.item.WeaponType.HACHE;
 
 import java.util.Map;
 
@@ -102,6 +102,7 @@ public class Main {
 					new Node(1, ldhef, 1,
 							new Node(3, ldf, 2,
 									new Node(9, mdf, 3)))));
+		
 		/* Affiche l'arbre de recette créé */
 		System.out.println(couperet_de_bandit_solide.toString());
 		System.out.println("-------------- TREE TEST END --------------\n\n");
@@ -118,7 +119,6 @@ public class Main {
 		Map<Integer, Tree> recipes = RecipeDBReader.extractTree(items);
 		System.out.println(recipes.toString());
 		System.out.println("-------------- RECIPES MAP END --------------\n\n");
-		
 		
 	}
 

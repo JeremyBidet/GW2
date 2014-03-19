@@ -7,44 +7,47 @@ import static fr.whyt.item.Scarcity.LEGENDAIRE;
 import static fr.whyt.item.Scarcity.NORMAL;
 import static fr.whyt.item.Scarcity.RAFFINE;
 import static fr.whyt.item.Scarcity.RARE;
+import static fr.whyt.item.StatType.ALTERATION;
+import static fr.whyt.item.StatType.CRITIQUE;
+import static fr.whyt.item.StatType.GUERISON;
+import static fr.whyt.item.StatType.PRECISION;
+import static fr.whyt.item.StatType.PUISSANCE;
+import static fr.whyt.item.StatType.ROBUSTESSE;
+import static fr.whyt.item.StatType.VITALITE;
 import static fr.whyt.item.Type.ARME;
 import static fr.whyt.item.Type.ARTISANAT;
 import static fr.whyt.item.Type.CACHET;
 import static fr.whyt.item.Type.COLIFICHET;
 import static fr.whyt.item.Type.RUNE;
-import static fr.whyt.item.TypeStat.ALTERATION;
-import static fr.whyt.item.TypeStat.CRITIQUE;
-import static fr.whyt.item.TypeStat.GUERISON;
-import static fr.whyt.item.TypeStat.PRECISION;
-import static fr.whyt.item.TypeStat.PUISSANCE;
-import static fr.whyt.item.TypeStat.ROBUSTESSE;
-import static fr.whyt.item.TypeStat.VITALITE;
-import static fr.whyt.item.TypeWeapon.ARC_COURT;
-import static fr.whyt.item.TypeWeapon.ARC_LONG;
-import static fr.whyt.item.TypeWeapon.BATON;
-import static fr.whyt.item.TypeWeapon.BOUCLIER;
-import static fr.whyt.item.TypeWeapon.COR_DE_GUERRE;
-import static fr.whyt.item.TypeWeapon.DAGUE;
-import static fr.whyt.item.TypeWeapon.EPEE;
-import static fr.whyt.item.TypeWeapon.ESPADON;
-import static fr.whyt.item.TypeWeapon.FOCUS;
-import static fr.whyt.item.TypeWeapon.FUSIL;
-import static fr.whyt.item.TypeWeapon.FUSIL_HARPON;
-import static fr.whyt.item.TypeWeapon.HACHE;
-import static fr.whyt.item.TypeWeapon.LANCE;
-import static fr.whyt.item.TypeWeapon.MARTEAU;
-import static fr.whyt.item.TypeWeapon.MASSE;
-import static fr.whyt.item.TypeWeapon.PISTOLET;
-import static fr.whyt.item.TypeWeapon.SCEPTRE;
-import static fr.whyt.item.TypeWeapon.TORCHE;
-import static fr.whyt.item.TypeWeapon.TRIDENT;
+import static fr.whyt.item.WeaponType.ARC_COURT;
+import static fr.whyt.item.WeaponType.ARC_LONG;
+import static fr.whyt.item.WeaponType.BATON;
+import static fr.whyt.item.WeaponType.BOUCLIER;
+import static fr.whyt.item.WeaponType.COR_DE_GUERRE;
+import static fr.whyt.item.WeaponType.DAGUE;
+import static fr.whyt.item.WeaponType.EPEE;
+import static fr.whyt.item.WeaponType.ESPADON;
+import static fr.whyt.item.WeaponType.FOCUS;
+import static fr.whyt.item.WeaponType.FUSIL;
+import static fr.whyt.item.WeaponType.FUSIL_HARPON;
+import static fr.whyt.item.WeaponType.HACHE;
+import static fr.whyt.item.WeaponType.LANCE;
+import static fr.whyt.item.WeaponType.MARTEAU;
+import static fr.whyt.item.WeaponType.MASSE;
+import static fr.whyt.item.WeaponType.PISTOLET;
+import static fr.whyt.item.WeaponType.SCEPTRE;
+import static fr.whyt.item.WeaponType.TORCHE;
+import static fr.whyt.item.WeaponType.TRIDENT;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import fr.whyt.item.Bonus;
 import fr.whyt.item.CraftMaterial;
@@ -52,10 +55,10 @@ import fr.whyt.item.Damage;
 import fr.whyt.item.Item;
 import fr.whyt.item.Scarcity;
 import fr.whyt.item.Stat;
+import fr.whyt.item.StatType;
 import fr.whyt.item.Type;
-import fr.whyt.item.TypeStat;
-import fr.whyt.item.TypeWeapon;
 import fr.whyt.item.Weapon;
+import fr.whyt.item.WeaponType;
 
 /**
  * Cette classe implémente {@link DBConnect}.<br>
@@ -68,170 +71,129 @@ import fr.whyt.item.Weapon;
  */
 public class DataDBReader extends DBReader {
 	
-	private static void getType (String line, int i) {
-		StringBuilder sb = new StringBuilder ();
-		for (; line.charAt(i) != ' '; i++) {
-			sb.append(line.charAt(i));
+	private static Type getType (String type) {
+		switch (type.toUpperCase()) {
+			case "ARME": return ARME;
+			case "ARTISANAT": return ARTISANAT;
+			case "CACHET": return CACHET;
+			case "COLIFICHET": return COLIFICHET;
+			case "RUNE": return RUNE;
+			default: return null;
 		}
-		Type type;
-		switch (sb.toString()) {
-			case "ARME": type = ARME; break;
-			case "ARTISANAT": type = ARTISANAT; break;
-			case "CACHET": type = CACHET; break;
-			case "COLIFICHET": type = COLIFICHET; break;
-			case "RUNE": type = RUNE; break;
-			default: type = null; break;
-		}
-		pointer.setI(i);
-		pointer.setObject(type);
 	}
 	
-	private static void getScarcity (String line, int i) {
-		StringBuilder sb = new StringBuilder();
-		for (; line.charAt(i) != ' '; i++) {
-			sb.append(line.charAt(i));
+	private static Scarcity getScarcity (String scarcity) {
+		switch (scarcity.toUpperCase()) {
+			case "NORMAL": return NORMAL;
+			case "RAFFINE": return RAFFINE;
+			case "CHEF_D_OEUVRE": return CHEF_D_OEUVRE;
+			case "RARE": return RARE;
+			case "EXOTIQUE": return EXOTIQUE;
+			case "ELEVE": return ELEVE;
+			case "LEGENDAIRE": return LEGENDAIRE;
+			default: return null;
 		}
-		Scarcity scarcity;
-		switch (sb.toString()) {
-			case "NORMAL": scarcity = NORMAL; break;
-			case "RAFFINE": scarcity = RAFFINE; break;
-			case "CHEF_D_OEUVRE": scarcity = CHEF_D_OEUVRE; break;
-			case "RARE": scarcity = RARE; break;
-			case "EXOTIQUE": scarcity = EXOTIQUE; break;
-			case "ELEVE": scarcity = ELEVE; break;
-			case "LEGENDAIRE": scarcity = LEGENDAIRE; break;
-			default: scarcity = null; break;
-		}
-		pointer.setI(i);
-		pointer.setObject(scarcity);
 	}
 
-	private static void getLevel (String line, int i) {
-		StringBuilder sb = new StringBuilder ();
-		for (; line.charAt(i) != ' '; i++) {
-			sb.append(line.charAt(i));
+	private static WeaponType getWeaponType (String weapontype) {
+		switch (weapontype.toUpperCase()) {
+			case "ARC_COURT": return ARC_COURT;
+			case "ARC_LONG": return ARC_LONG;
+			case "BATON": return BATON;
+			case "BOUCLIER": return BOUCLIER;
+			case "COR_DE_GUERRE": return COR_DE_GUERRE;
+			case "DAGUE": return DAGUE;
+			case "EPEE": return EPEE;
+			case "ESPADON": return ESPADON;
+			case "FOCUS": return FOCUS;
+			case "FUSIL": return FUSIL;
+			case "FUSIL_HARPON": return FUSIL_HARPON;
+			case "HACHE": return HACHE;
+			case "LANCE": return LANCE;
+			case "MARTEAU": return MARTEAU;
+			case "MASSE": return MASSE;
+			case "PISTOLET": return PISTOLET;
+			case "SCEPTRE": return SCEPTRE;
+			case "TORCHE": return TORCHE;
+			case "TRIDENT": return TRIDENT;
+			default: return null;
 		}
-		pointer.setI(i);
-		pointer.setObject(Integer.parseInt(sb.toString()));
 	}
 	
-	private static void getPrice (String line, int i) {
-		StringBuilder sb = new StringBuilder ();
-		for (; i<line.length() && line.charAt(i) != ' '; i++) {
-			sb.append(line.charAt(i));
-		}
-		pointer.setI(i);
-		pointer.setObject(Integer.parseInt(sb.toString()));
-	}
-	
-	private static void getSubType (String line, int i) {
-		StringBuilder sb = new StringBuilder ();
-		for (; line.charAt(i) != ' ' && line.charAt(i) != '\n'; i++) {
-			sb.append(line.charAt(i));
-		}
-		TypeWeapon type_weapon;
-		switch (sb.toString()) {
-			case "ARC_COURT": type_weapon = ARC_COURT; break;
-			case "ARC_LONG": type_weapon = ARC_LONG; break;
-			case "BATON": type_weapon = BATON; break;
-			case "BOUCLIER": type_weapon = BOUCLIER; break;
-			case "COR_DE_GUERRE": type_weapon = COR_DE_GUERRE; break;
-			case "DAGUE": type_weapon = DAGUE; break;
-			case "EPEE": type_weapon = EPEE; break;
-			case "ESPADON": type_weapon = ESPADON; break;
-			case "FOCUS": type_weapon = FOCUS; break;
-			case "FUSIL": type_weapon = FUSIL; break;
-			case "FUSIL_HARPON": type_weapon = FUSIL_HARPON; break;
-			case "HACHE": type_weapon = HACHE; break;
-			case "LANCE": type_weapon = LANCE; break;
-			case "MARTEAU": type_weapon = MARTEAU; break;
-			case "MASSE": type_weapon = MASSE; break;
-			case "PISTOLET": type_weapon = PISTOLET; break;
-			case "SCEPTRE": type_weapon = SCEPTRE; break;
-			case "TORCHE": type_weapon = TORCHE; break;
-			case "TRIDENT": type_weapon = TRIDENT; break;
-			default: type_weapon = null; break;
-		}
-		pointer.setI(i);
-		pointer.setObject(type_weapon);
-	}
-	
-	private static void getDamage (String line, int i) {
-		StringBuilder sb = new StringBuilder ();
-		for (; line.charAt(i) != ' ' && line.charAt(i) != '\n'; i++) {
-			sb.append(line.charAt(i));
-		}
-		i++;
-		StringBuilder sn = new StringBuilder ();
-		for (; line.charAt(i) != ' ' && line.charAt(i) != '\n'; i++) {
-			sn.append(line.charAt(i));
-		}
-		pointer.setI(i);
-		pointer.setObject(new Damage(Integer.parseInt(sb.toString()), Integer.parseInt(sn.toString())));
-	}
-	
-	private static void getBonus (String line, int i) {
-		StringBuilder sb = new StringBuilder ();
-		for (; line.charAt(i) != ' ' && line.charAt(i) != '\n'; i++) {
-			sb.append(line.charAt(i));
-		}
-		StringBuilder sn = new StringBuilder ();
-		for (i++; i < line.length() && line.charAt(i) != ' '; i++) {
-			sn.append(line.charAt(i));
-		}
-		TypeStat type_stat;
-		switch (sn.toString()) {
-			case "PUISSANCE": type_stat = PUISSANCE; break;
-			case "ROBUSTESSE": type_stat = ROBUSTESSE; break;
-			case "VITALITE": type_stat = VITALITE; break;
-			case "PRECISION": type_stat = PRECISION; break;
-			case "GUERISON": type_stat = GUERISON; break;
-			case "ALTERATION": type_stat = ALTERATION; break;
-			case "CRITIQUE": type_stat = CRITIQUE; break;
-			default: type_stat = null; break;
-		}
-		pointer.setI(i);
-		pointer.setObject(new Stat(type_stat, Integer.parseInt(sb.toString())));
+	private static Bonus getBonus (String s_bonus) {
+		Stat[] bonus = new Stat[0];
+		String regex = "(?<bonus> (?<value>\\d+) (?<type>.*))*";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(s_bonus);
+		while(m.matches()) { // START TODO
+			System.out.println(
+					"group 0 total : \"" + m.group() + "\"\n"
+					+ "group 1 recipe : \"" + m.group("recipe") + "\"\n"
+					+ "group 2 indent : \"" + m.group("indent") + "\"\n"
+					+ "group 3 name : \"" + m.group("name") + "\"\n"
+					+ "group 4 quantity : \"" + m.group("quantity") + "\"\n"
+					+ "group 5 comment : \"" + m.group("comment") + "\"\n"
+					+ "group 6 content : \"" + m.group("content") + "\"\n");
+			
+			String type = m.group("type"); // to StatType
+			String s_value = m.group("value"); // to int
+			StatType stattype;
+			switch (type.toUpperCase()) {
+				case "PUISSANCE": stattype = PUISSANCE; break;
+				case "ROBUSTESSE": stattype = ROBUSTESSE; break;
+				case "VITALITE": stattype = VITALITE; break;
+				case "PRECISION": stattype = PRECISION; break;
+				case "GUERISON": stattype = GUERISON; break;
+				case "ALTERATION": stattype = ALTERATION; break;
+				case "CRITIQUE": stattype = CRITIQUE; break;
+				default: stattype = null; break;
+			}
+			int value = Integer.parseInt(s_value != null && !s_value.isEmpty() ? s_value : "0");
+			bonus = Arrays.copyOf(bonus, bonus.length+1);
+			bonus[bonus.length-1] = new Stat(stattype, value);
+		} // END TODO
+		return new Bonus(bonus);
 	}
 
 	public static Map<Integer, Item> extractData () {
 		if(!data.exists() || !data.canRead()) {
 			return null;
 		}
-		Map<Integer, Item> items = new HashMap<Integer, Item>(lines(data)-54, .90f);
+		Map<Integer, Item> items = new HashMap<Integer, Item>(10, .90f);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(data));
-			pointer = new Pointer();
+			String regex = "(?<item>\"(?<name>.*)\" (?<type>.*) (?<scarcity>.*) (?<level>\\d+) (?<price>\\d+) (?<weapontype>.*) (?<highdamage>\\d+)[- ](?<lowdamage>\\d+)(?<bonus> (?<bonusvalue>\\d+) (?<bonustype>.*))*)?(?<comment>\\s*(?<content>//.*)?)?";
+			Pattern p = Pattern.compile(regex);
 			for (String line; (line = br.readLine()) != null; ) {
-				// vide, commentaire ou invalide
-				if(isEmpty(line) || isCommentLine(line) || isInvalid(line)) {
-					continue;
-				}
-				// nom
-				getName(line, 0);						String name = (String)pointer.getObject();
-				// type
-				getType(line, pointer.getI()+1);		Type type = (Type)pointer.getObject();
-				// rareté
-				getScarcity(line, pointer.getI()+1);	Scarcity scarcity = (Scarcity)pointer.getObject();
-				// niveau
-				getLevel(line, pointer.getI()+1);		int level = (Integer)pointer.getObject();
-				// prix
-				getPrice(line, pointer.getI()+1);		int price = (Integer)pointer.getObject();
-				TypeWeapon type_weapon = null; Damage damage = null; Bonus bonus = null;
-				if(type != ARTISANAT) {
-					// sous-type
-					getSubType(line, pointer.getI()+1);	type_weapon = (TypeWeapon)pointer.getObject();
-					// dégâts
-					getDamage(line, pointer.getI()+1);	damage = (Damage)pointer.getObject();
-					// bonus
-					bonus = new Bonus();
-					while (pointer.getI() < line.length()) {
-						getBonus(line, pointer.getI()+1);	bonus.add((Stat)pointer.getObject());
-					}
-				}
+				Matcher m = p.matcher(line);
+				
+				if(!m.matches()) continue; // ligne non valide
+				// START TODO
+				System.out.println(
+						"group 0 total : \"" + m.group() + "\"\n"
+						+ "group 1 recipe : \"" + m.group("recipe") + "\"\n"
+						+ "group 2 indent : \"" + m.group("indent") + "\"\n"
+						+ "group 3 name : \"" + m.group("name") + "\"\n"
+						+ "group 4 quantity : \"" + m.group("quantity") + "\"\n"
+						+ "group 5 comment : \"" + m.group("comment") + "\"\n"
+						+ "group 6 content : \"" + m.group("content") + "\"\n");
+				
+				String item = m.group("item");
+				if(item == null || item.isEmpty()) continue; // ligne vide ou commentaire
+				
+				String name = m.group("name");
+				Type type = getType(m.group("type"));
+				Scarcity scarcity = getScarcity(m.group("scarcity"));
+				int level = Integer.parseInt(m.group("level"));
+				int price = Integer.parseInt(m.group("price"));
 				switch (type) {
 					case ARME:
-						Item new_weapon = new Weapon(name, scarcity, level, price, damage, bonus, type_weapon);
+						WeaponType weapontype = getWeaponType(m.group("weapontype"));
+						Damage damage = new Damage(
+								Integer.parseInt(m.group("highdamage")), 
+								Integer.parseInt(m.group("lowdamage")));
+						Bonus bonus = getBonus(m.group("bonus"));
+						Item new_weapon = new Weapon(name, scarcity, level, price, damage, bonus, weapontype);
 						if(!items.containsKey(new_weapon.getId())) {
 							items.put(new_weapon.getId(), new_weapon);
 						}
@@ -244,6 +206,7 @@ public class DataDBReader extends DBReader {
 						break;
 					default: break;
 				}
+				// END TODO
 			}
 			br.close();
 		} catch (FileNotFoundException e) {

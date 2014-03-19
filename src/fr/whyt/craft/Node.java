@@ -11,7 +11,7 @@ import fr.whyt.item.Item;
  * @author WhyT
  *
  */
-public class Node {
+public class Node implements Cloneable {
 	
 	private int quantity;
 	private final Item item;
@@ -19,9 +19,11 @@ public class Node {
 	private List<Node> sons;
 	
 	/**
-	 * Crée un noeud contenant une quantité et un item
+	 * Crée un noeud contenant une quantité, un item, un niveau et des fils
 	 * @param quantity quantité de l'objet à crafter.
 	 * @param item objet à crafter.
+	 * @param level niveau de l'Item dans la recette
+	 * @param sons tableau de fils : ingrédient servant à la fabrication de cet Item
 	 */
 	public Node (int quantity, Item item, int level, Node... sons) {
 		this.quantity = quantity;
@@ -33,8 +35,22 @@ public class Node {
 				this.sons.add(son);
 			}
 		} else {
-			this.sons = null;
+			this.sons = new ArrayList<Node>(0);
 		}
+	}
+	
+	/**
+	 * Crée un noeud contenant une quantité, un item, un niveau et des fils
+	 * @param quantity quantité de l'objet à crafter.
+	 * @param item objet à crafter.
+	 * @param level niveau de l'Item dans la recette
+	 * @param sons liste de fils : ingrédient servant à la fabrication de cet Item
+	 */
+	public Node (int quantity, Item item, int level, List<Node> sons) {
+		this.quantity = quantity;
+		this.item = item;
+		this.level = level;
+		this.sons = sons;
 	}
 	
 	public int getLevel() {
@@ -43,6 +59,10 @@ public class Node {
 	
 	public List<Node> getSons() {
 		return sons;
+	}
+	
+	public boolean addSon(Node son) {
+		return sons.add(son);
 	}
 	
 	private String indent() {
@@ -59,6 +79,11 @@ public class Node {
 	 */
 	public void setQuantity (int quantity) {
 		this.quantity = quantity;
+	}
+	
+	@Override
+	public Node clone() {
+		return new Node(this.quantity, this.item, this.level, this.sons);
 	}
 	
 	@Override

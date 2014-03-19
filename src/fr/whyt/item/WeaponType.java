@@ -44,7 +44,7 @@ package fr.whyt.item;
  * @author WhyT
  *
  */
-public enum TypeWeapon {
+public enum WeaponType {
 	ARC_COURT,
 	ARC_LONG,
 	BATON,

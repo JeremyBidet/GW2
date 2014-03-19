@@ -8,15 +8,14 @@
 // Les item sont uniques et ne sont créé qu'une unique fois pour des valeurs identiques.
 //		ex : Minerai de fer ARTISANAT NORMAL 50 118
 //					est considéré égal à
-//			 minerai de fer ARTISANAT NORMAL 50 118
-//					mais n'est pas considéré égal à (les deux items sont créés)
-//			 Minerai de fer ARTISANAT NORMAL 50 119
+//			 mineRAI de Fer ARTISANAT NORMAL 50 118
+//					est considéré égal à
+//			 Minerai de FER ARTISANAT NORMAL 25 90
 //
 // Le NOM doit être entouré de guillemets "...". N'est pas sensible à la casse.
-//		ex : Minerai de fer = mineRAI de fEr
-//		Si les valeurs de l'item (prix, rareté, niveau, type, etc...) sont identiques,
-//		alors l'objet est considéré identique indépendemment de la casse du nom. 
-// Les TYPE, RARETE, SOUSTYPE et BONUSTYPE sont en majuscules et doivent exister dans l'énumération :
+//		ex : Minerai de fer = mineRAI de fEr 
+// Les TYPE, RARETE, SOUSTYPE et BONUSTYPE ne sont pas sensibles à la casse mais doivent exister dans
+// l'énumération :
 //		TYPE :
 //			ARME, COLIFICHET, ARTISANAT, RUNE, CACHET
 //		RARETE :
@@ -31,7 +30,7 @@
 // 		Il est calculé suivant la formule suivante : price = po*10000 + pa*100 + pb.
 // 		ex : 1po 83pa 6pb = 1*10000 + 83*100 + 6 = 18306
 // Les DEGAT_MIN et DEGAT_MAX sont des entiers.
-// 		ex : 950 1150
+// 		ex : 950 1150 ou 950-1150
 // Les BONUS terminent la ligne et peuvent être à l'infini.
 //		ils sont composés d'un entier (valeur du bonus) puis du type du bonus.
 //		ex : +128 PUISSANCE +102 ROBUSTESSE +102 VITALITE

@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -23,26 +22,6 @@ import fr.whyt.item.Item;
  *
  */
 public class RecipeDBReader extends DBReader {
-	
-	private static void getIndent (String line, int i) {
-		if(line.length() == 0) {
-			pointer.setI(i);
-			pointer.setObject(0);
-			return;
-		}
-		for (; line.charAt(i) != '"'; i++);
-		pointer.setI(i);
-		pointer.setObject(i);
-	}
-	
-	private static void getQuantity (String line, int i) {
-		StringBuilder sb = new StringBuilder ();
-		for (; i < line.length(); i++) {
-			sb.append(line.charAt(i));
-		}
-		pointer.setI(i);
-		pointer.setObject(Integer.parseInt(sb.toString()));
-	}
 	
 	/**
 	 * Crée les recettes à partir de la base de données.<br>
@@ -76,68 +55,67 @@ public class RecipeDBReader extends DBReader {
 		if(!recipe.exists() || !recipe.canRead()) {
 			return null;
 		}
-		Map<Integer, Tree> recipes = new HashMap<Integer, Tree>(lines(recipe)-56, .90f);
+		Map<Integer, Tree> recipes = new HashMap<Integer, Tree>(10, .90f);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(recipe));
-			pointer = new Pointer();
-			/* 0 or 1 <recipe> :
-			 * 		<group name>		<description>
-			 * 		indent			:	0 or 1 indent
-			 * 		name			:	1 " followed by 0 or more any character followed by 1 "
-			 * 		quantity		:	0 or more digit
-			 * 0 or 1 <comment> :
-			 * 		tab				:	0 or more tabulation
-			 * 		content			:	1 / followed by 1 / followed by 0 or more any character
+			/* <gname>		<#pgname>	<#gname>	<description>
+			 * _all							0		zero or one <recipe> and zero or one <comment>
+			 * recipe			0			1		? : zero or one <- <indent>"<name>"\s*<quantity> ->
+			 * indent			1			2		\t? : zero or one indent \t 
+			 * name				1			3		.+ : one or more of any characters
+			 * quantity			1			4		\d* : zero or more of any digits
+			 * comment			0			5		? : zero or one \s*<content>
+			 * content			5			6		//.* : zero or one <- // and zero or more any characters ->
+			 **
+			 * gname : group name,
+			 * #pgname : number of parent group name,
+			 * #gname : number of group name,
+			 * description : description of group feature
 			 */
-			Pattern p = Pattern.compile(
-					"(?<recipe>(?<indent>\t?)(?<name>\".*\") (?<quantity>\\d*))?(?<comment>(?<tab>\\s*)(?<content>//.*)?)?");
+			String regex = "(?<recipe>(?<indent>\t?)\"(?<name>.+)\"\\s*(?<quantity>\\d*))?(?<comment>\\s*(?<content>//.*)?)?";
+			Pattern p = Pattern.compile(regex);
+			Node root = null; // Node temporaire stockant la dernière recette lue (ingrédient racine).
 			for (String line; (line = br.readLine()) != null; ) {
 				Matcher m = p.matcher(line);
-				boolean b = m.matches();
-				System.out.println("line : \"" + line + "\"");
-				System.out.println("matches : " + b);
-				if(b) {
-					System.out.println(
-							"group 0 total : \"" + m.group() + "\"\n"
-							+ "group 1 recipe : \"" + m.group("recipe") + "\"\n"
-							+ "group 2 indent : \"" + m.group("indent") + "\"\n"
-							+ "group 3 name : \"" + m.group("name") + "\"\n"
-							+ "group 4 quantity : \"" + m.group("quantity") + "\"\n"
-							+ "group 5 comment : \"" + m.group("comment") + "\"\n"
-							+ "group 6 tab : \"" + m.group("tab") + "\"\n"
-							+ "group 7 content : \"" + m.group("content") + "\"\n");
-				}
+				if(!m.matches()) continue; // ligne non valide
+				System.out.println(
+						"group 0 total : \"" + m.group() + "\"\n"
+						+ "group 1 recipe : \"" + m.group("recipe") + "\"\n"
+						+ "group 2 indent : \"" + m.group("indent") + "\"\n"
+						+ "group 3 name : \"" + m.group("name") + "\"\n"
+						+ "group 4 quantity : \"" + m.group("quantity") + "\"\n"
+						+ "group 5 comment : \"" + m.group("comment") + "\"\n"
+						+ "group 6 content : \"" + m.group("content") + "\"\n");
 				
-				/* Recette */
-				// vide ou commentaire
-//				if(isEmpty(line) || isCommentLine(line)) continue;
-				// nom
-//				getName(line, 0);	String name = (String)pointer.getObject();
-				/* Ingrédients */
-//				Node[] sons = new Node[1];
-//				int i = 0;
-//				while((line = br.readLine()) != null) {
-					// commentaire
-//					if(isCommentLine(line)) continue;
-					// indentation
-//					getIndent(line, 0);						int indent = (Integer)pointer.getObject();
-//					if(indent == 0) break;
-					// nom
-//					getName(line, pointer.getI());			String sub_name = (String)pointer.getObject();
-					// quantité
-//					getQuantity(line, pointer.getI()+1);	int quantity = (Integer)pointer.getObject();
-//					if(i == sons.length) {
-//						sons = Arrays.copyOf(sons, sons.length+1);
-//					}
-//					Item temp = items.get(sub_name.toLowerCase().hashCode());
-//					sons[i++] = new Node(quantity, temp, 1);
-//				}
-//				Item temp = items.get(name.toLowerCase().hashCode());
-//				Node node = new Node(1, temp, 0, sons);
-//				Tree tree = new Tree(node);
-//				if(!recipes.containsKey(tree.getId())) {
-//					recipes.put(tree.getId(), tree);
-//				}
+				String recipe = m.group("recipe");
+				if(recipe == null || recipe.isEmpty()) continue; // pas de recettes : vide ou commentaire seul
+				
+				String indent = m.group("indent");
+				String name = m.group("name");
+				String quantity = m.group("quantity");
+				
+				if(indent.length() > 0 && root != null) { // ingrédient et recette pré-lue
+					Item tmp = items.get(name.toLowerCase().hashCode());
+					if(tmp == null) continue;
+					root.addSon(new Node(
+							Integer.parseInt(quantity!=null && !quantity.isEmpty() ? quantity : "1"), 
+							tmp,
+							1)); // on cherche l'item correspondant au nom et on l'ajoute avec sa quantité au tableau)
+				} else { // recette
+					if(root != null && !recipes.containsKey(root.hashCode())) { // on ajoute la dernière recette lue à la Map
+						recipes.put(root.hashCode(), new Tree(root.clone()));
+					}
+					// on réinitialise notre recette root avec la nouvelle lue
+					Item tmp = items.get(name.toLowerCase().hashCode());
+					if(tmp == null) continue;
+					root = new Node(
+							Integer.parseInt(quantity!=null && !quantity.isEmpty() ? quantity : "1"), 
+							tmp,
+							0); // on cherche l'item correspondant au nom et on créer le Node à partir de cet Item
+				}
+			}
+			if(root != null && !recipes.containsKey(root.hashCode())) { // on ajoute la dernière recette de la base de données à la Map
+				recipes.put(root.hashCode(), new Tree(root.clone()));
 			}
 			br.close();
 		} catch (FileNotFoundException e) {

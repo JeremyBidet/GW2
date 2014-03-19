@@ -2,17 +2,17 @@ package fr.whyt.item;
 
 /**
  * Définie les statistiques bonus d'un objet.<br>
- * Un champ <i>name</i> : {@link TypeStat} et <i>value</i>
+ * Un champ <i>name</i> : {@link StatType} et <i>value</i>
  * <br>
  * @author WhyT
  *
  */
 public class Stat {
 	
-	private TypeStat name;
+	private StatType name;
 	private int value;
 	
-	public Stat (TypeStat name, int value) {
+	public Stat (StatType name, int value) {
 		this.name = name;
 		this.value = value;
 	}

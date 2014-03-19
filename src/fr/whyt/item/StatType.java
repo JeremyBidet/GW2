@@ -15,7 +15,7 @@ package fr.whyt.item;
  * @author WhyT
  *
  */
-public enum TypeStat {
+public enum StatType {
 
 	PUISSANCE,
 	ROBUSTESSE,
