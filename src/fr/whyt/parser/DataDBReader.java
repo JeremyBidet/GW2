@@ -44,7 +44,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -69,7 +68,7 @@ import fr.whyt.item.WeaponType;
  * @author WhyT
  *
  */
-public class DataDBReader extends DBReader {
+public class DataDBReader implements DBReader, DBConnect {
 	
 	private static Type getType (String type) {
 		switch (type.toUpperCase()) {
@@ -122,18 +121,15 @@ public class DataDBReader extends DBReader {
 	
 	private static Bonus getBonus (String s_bonus) {
 		Stat[] bonus = new Stat[0];
-		String regex = "(?<bonus> (?<value>\\d+) (?<type>.*))*";
+		String regex = "(?<bonus>(?<value>\\d+) (?<type>\\w+)[ ]?)*";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(s_bonus);
-		while(m.matches()) { // START TODO
+		while(m.matches()) {
 			System.out.println(
 					"group 0 total : \"" + m.group() + "\"\n"
-					+ "group 1 recipe : \"" + m.group("recipe") + "\"\n"
-					+ "group 2 indent : \"" + m.group("indent") + "\"\n"
-					+ "group 3 name : \"" + m.group("name") + "\"\n"
-					+ "group 4 quantity : \"" + m.group("quantity") + "\"\n"
-					+ "group 5 comment : \"" + m.group("comment") + "\"\n"
-					+ "group 6 content : \"" + m.group("content") + "\"\n");
+					+ "group 1 bonus : \"" + m.group("bonus") + "\"\n"
+					+ "\tgroup 2 value : \"" + m.group("value") + "\"\n"
+					+ "\tgroup 3 type : \"" + m.group("type") + "\"\n");
 			
 			String type = m.group("type"); // to StatType
 			String s_value = m.group("value"); // to int
@@ -151,7 +147,7 @@ public class DataDBReader extends DBReader {
 			int value = Integer.parseInt(s_value != null && !s_value.isEmpty() ? s_value : "0");
 			bonus = Arrays.copyOf(bonus, bonus.length+1);
 			bonus[bonus.length-1] = new Stat(stattype, value);
-		} // END TODO
+		}
 		return new Bonus(bonus);
 	}
 
@@ -159,24 +155,31 @@ public class DataDBReader extends DBReader {
 		if(!data.exists() || !data.canRead()) {
 			return null;
 		}
-		Map<Integer, Item> items = new HashMap<Integer, Item>(10, .90f);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(data));
-			String regex = "(?<item>\"(?<name>.*)\" (?<type>.*) (?<scarcity>.*) (?<level>\\d+) (?<price>\\d+) (?<weapontype>.*) (?<highdamage>\\d+)[- ](?<lowdamage>\\d+)(?<bonus> (?<bonusvalue>\\d+) (?<bonustype>.*))*)?(?<comment>\\s*(?<content>//.*)?)?";
-			Pattern p = Pattern.compile(regex);
+			Pattern p = Pattern.compile(dataRegExp);
 			for (String line; (line = br.readLine()) != null; ) {
 				Matcher m = p.matcher(line);
 				
 				if(!m.matches()) continue; // ligne non valide
-				// START TODO
 				System.out.println(
-						"group 0 total : \"" + m.group() + "\"\n"
-						+ "group 1 recipe : \"" + m.group("recipe") + "\"\n"
-						+ "group 2 indent : \"" + m.group("indent") + "\"\n"
-						+ "group 3 name : \"" + m.group("name") + "\"\n"
-						+ "group 4 quantity : \"" + m.group("quantity") + "\"\n"
-						+ "group 5 comment : \"" + m.group("comment") + "\"\n"
-						+ "group 6 content : \"" + m.group("content") + "\"\n");
+						"group 0 total : " + m.group() + "\n"
+						+ "group 1 item : " + m.group("item") + "\n"
+						+ "\tgroup 2 craftmaterial : " + m.group("craftmaterial") + "\n"
+						+ "\t\tgroup 3 name : " + m.group("name") + "\n"
+						+ "\t\tgroup 4 type : " + m.group("type") + "\n"
+						+ "\t\tgroup 5 scarcity : " + m.group("scarcity") + "\n"
+						+ "\t\tgroup 6 level : " + m.group("level") + "\n"
+						+ "\t\tgroup 7 price : " + m.group("price") + "\n"
+						+ "\tgroup 8 weapon : " + m.group("weapon") + "\n"
+						+ "\t\tgroup 9 weapontype : " + m.group("weapontype") + "\n"
+						+ "\t\tgroup 10 lowdamage : " + m.group("lowdamage") + "\n"
+						+ "\t\tgroup 11 highdamage : " + m.group("highdamage") + "\n"
+						+ "\t\tgroup 12 bonus : " + m.group("bonus") + "\n"
+						+ "\t\t\tgroup 13 bonusvalue : " + m.group("bonusvalue") + "\n"
+						+ "\t\t\tgroup 14 bonustype : " + m.group("bonustype") + "\n"
+						+ "group 15 comment : " + m.group("comment") + "\n"
+						+ "\tgroup 16 content : " + m.group("content") + "\n");
 				
 				String item = m.group("item");
 				if(item == null || item.isEmpty()) continue; // ligne vide ou commentaire
@@ -206,7 +209,6 @@ public class DataDBReader extends DBReader {
 						break;
 					default: break;
 				}
-				// END TODO
 			}
 			br.close();
 		} catch (FileNotFoundException e) {

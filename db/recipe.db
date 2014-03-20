@@ -52,7 +52,7 @@
 //	Le saut de ligne n'implique pas la fin de la recette.
 // 	
 // Les chevrons sont des caractères spéciaux dans la syntaxe ci-dessus, ils ne doivent pas être écris.
-// Seulement les variables à l'intérieur.
+// Seulement les variables à l'intérieur sont à écrire.
 // L'indentation des ingrédients est importante. Il s'agit de tabulations (1 seule) et non d'espaces.
 // Les guillemets sont obligatoires autour des noms. La quantité est un nombre entier positif ou nul, ou sans valeur.
 // Les commentaires sont autorisés n'importe où. Attention, tous caractères après // fait partit du commentaire.
@@ -71,7 +71,7 @@
 //
 // Version 1.0
 //
-// 2013-2014 @ Copyright WhyT - Tous droit réservés.
+// 2014 @ Copyright WhyT - Tous droit réservés.
 // ********************************************************************************************************
 
 "Couperet de bandit solide" // très rentable

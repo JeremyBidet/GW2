@@ -3,19 +3,20 @@
 // ********************************************************************************************************
 //
 // Format du fichier :
-// NOM TYPE RARETE NIVEAU PRIX SOUSTYPE DEGATMIN DEGATMAX BONUSVALEUR BONUSTYPE BONUSVALEUR BONUSTYPE ...
+// "NOM" TYPE RARETE NIVEAU PRIX SOUSTYPE DEGATMIN-DEGATMAX BONUSVALEUR BONUSTYPE BONUSVALEUR BONUSTYPE ...
+// "NOM" TYPE RARETE NIVEAU PRIX SOUSTYPE DEGATMIN DEGATMAX BONUSVALEUR BONUSTYPE BONUSVALEUR BONUSTYPE ...
 //
-// Les item sont uniques et ne sont créé qu'une unique fois pour des valeurs identiques.
+// Les item sont uniques et ne sont créés qu'une unique fois pour un même nom, type et rareté.
 //		ex : Minerai de fer ARTISANAT NORMAL 50 118
 //					est considéré égal à
-//			 mineRAI de Fer ARTISANAT NORMAL 50 118
-//					est considéré égal à
-//			 Minerai de FER ARTISANAT NORMAL 25 90
+//			 mineRAI de Fer ARTISANAT NORMAL 25 90
+//					est considéré différent de
+//			 Minerai de fer ARTISANAT RAFFINE 50 118
 //
 // Le NOM doit être entouré de guillemets "...". N'est pas sensible à la casse.
 //		ex : Minerai de fer = mineRAI de fEr 
 // Les TYPE, RARETE, SOUSTYPE et BONUSTYPE ne sont pas sensibles à la casse mais doivent exister dans
-// l'énumération :
+// l'énumération (nous conseillons l'utilisation de majuscules par lisiblité) :
 //		TYPE :
 //			ARME, COLIFICHET, ARTISANAT, RUNE, CACHET
 //		RARETE :
@@ -29,18 +30,18 @@
 // Le prix est un entier compris entre 0 et 2147483647 inclus.
 // 		Il est calculé suivant la formule suivante : price = po*10000 + pa*100 + pb.
 // 		ex : 1po 83pa 6pb = 1*10000 + 83*100 + 6 = 18306
-// Les DEGAT_MIN et DEGAT_MAX sont des entiers.
+// Les DEGAT_MIN et DEGAT_MAX sont des entiers séparés par un espace ou un trait-d'union.
 // 		ex : 950 1150 ou 950-1150
-// Les BONUS terminent la ligne et peuvent être à l'infini.
-//		ils sont composés d'un entier (valeur du bonus) puis du type du bonus.
+// Les BONUS terminent la ligne, il n'y a pas de quantité max pour les bonus.
+//		ils sont composés d'un entier (valeur du bonus) puis du type du bonus (chaine de caractères non
+//		sensible à la casse).
 //		ex : +128 PUISSANCE +102 ROBUSTESSE +102 VITALITE
 // Les composants d'artisanat n'ont que les champs :
 // 		NOM, TYPE, RARETE, NIVEAU et PRIX.
 //
-// Vous pouvez laisser des lignes vides.
-// Les commentaires sont in-line et commencent uniquement par //... .
-// Pas d'indentation pour les commentaires.
-// Les commentaires doivent être insérés sur une ligne vide : pas de mélance de données.
+// Les commentaires sont autorisés n'importe où. Attention, tous caractères après // fait partit du commentaire.
+// Les commentaires sont in-line et commencent uniquement par //...
+// Les lignes vides sont autorisées n'importe où.
 // Ce fichier peut-être éditer manuellement en respectant les consignes ci-dessus.
 // Le non-respect de ces consignes peut entrainer un disfonctionnement du programme.
 // Il est recommandé d'utiliser l'outil d'ajout d'item.
@@ -49,17 +50,17 @@
 //
 // Version 1.0
 //
-// 2013-2014 @ Copyright WhyT - Tous droit réservés.
+// 2014 @ Copyright WhyT - Tous droit réservés.
 // ********************************************************************************************************
 
 
 
-// NOM TYPE RARETE NIVEAU PRIX SOUSTYPE DEGATMIN DEGATMAX BONUSVALEUR BONUSTYPE BONUSVALEUR BONUSTYPE ...
-"Couperet de bandit solide" ARME RARE 35 11738 HACHE 400 500 30 PUISSANCE 24 VITALITE 24 ROBUSTESSE
+// "NOM" TYPE RARETE NIVEAU PRIX SOUSTYPE DEGATMIN-DEGATMAX BONUSVALEUR BONUSTYPE BONUSVALEUR BONUSTYPE ...
+"Couperet de bandit solide" ARME RARE 35 11738 HACHE 400-500 30 PUISSANCE 24 VITALITE 24 ROBUSTESSE
 "Inscription enchantée sur plaque en fer solide" ARTISANAT RARE 125 4052
-"Hampe de hache en fer" ARTISANAT RAFFINE 125 1002
-"Lame de hache en fer" ARTISANAT RAFFINE 125 986
-"Petite ecaille" ARTISANAT RARE 125 155
+"Hampe de hache en fer" ARTISANAT RAFFINE 125-1002 // useless
+"Lame de hache en fer" ARTISANAT RAFFINE 125 986 // useless
+"Petite ecaille" ARTISANAT RARE 125 155 // T3
 "Goujon sur plaque en fer" ARTISANAT CHEF_D_OEUVRE 125 1025
 "Planche en bois tendre" ARTISANAT NORMAL 125 432
 "Rondin en bois souple" ARTISANAT NORMAL 50 112

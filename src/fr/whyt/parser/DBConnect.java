@@ -12,6 +12,7 @@ import java.io.File;
 public interface DBConnect {
 
 	public final File data = new File("db/data.db");
+	
 	public final File recipe = new File("db/recipe.db");
 	
 }

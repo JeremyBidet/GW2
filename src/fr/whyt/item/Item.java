@@ -24,7 +24,8 @@ public abstract class Item {
 	private final Currency price;
 	
 	/**
-	 * Crée un item. N'accepte que la monnaie de jeu.
+	 * Crée un item. N'accepte que la monnaie de jeu.<br>
+	 * L'ID unique est créé à partir du hashcode du nom en minuscule concaténé au type et à la rareté en majuscule de l'objet.<br>
 	 * @param name nom de l'item
 	 * @param type type de l'item ({@link Type})
 	 * @param scarcity rareté de l'item ({@link Scarcity})
@@ -32,7 +33,9 @@ public abstract class Item {
 	 * @param price prix de l'item à l'achat/vente en monnaie de jeu ({@link Currency})
 	 */
 	public Item (String name, Type type, Scarcity scarcity, int level, Currency price) {
-		this.id = name.hashCode();
+		// calculate the hashcode of concat lowercase name and uppercase scarcity, type string
+		this.id = (name.toLowerCase() + type.toString().toUpperCase() + scarcity.toString().toUpperCase())
+				.hashCode();
 		this.name = name;
 		this.type = type;
 		this.scarcity = scarcity;
@@ -41,7 +44,8 @@ public abstract class Item {
 	}
 	
 	/**
-	 * Crée un item. Accepte la valeur entière de l'objet.
+	 * Crée un item. Accepte la valeur entière de l'objet.<br>
+	 * L'ID unique est créé à partir du hashcode du nom en minuscule concaténé au type et à la rareté en majuscule de l'objet.<br>
 	 * @param name nom de l'item
 	 * @param type type de l'item ({@link Type})
 	 * @param scarcity rareté de l'item ({@link Scarcity})
@@ -49,7 +53,9 @@ public abstract class Item {
 	 * @param price prix de l'item à l'achat/vente sous forme entière (bronze)
 	 */
 	public Item (String name, Type type, Scarcity scarcity, int level, int price) {
-		this.id = name.toLowerCase().hashCode();
+		// calculate the hashcode of concat lowercase name and uppercase scarcity, type string
+		this.id = (name.toLowerCase() + type.toString().toUpperCase() + scarcity.toString().toUpperCase())
+				.hashCode();
 		this.name = name;
 		this.type = type;
 		this.scarcity = scarcity;

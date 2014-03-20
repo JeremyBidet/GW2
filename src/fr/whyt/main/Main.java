@@ -103,7 +103,7 @@ public class Main {
 							new Node(3, ldf, 2,
 									new Node(9, mdf, 3)))));
 		
-		/* Affiche l'arbre de recette créé */
+		/* Affiche l'arbre de recette créé manuellement */
 		System.out.println(couperet_de_bandit_solide.toString());
 		System.out.println("-------------- TREE TEST END --------------\n\n");
 		/***********************************************************************************/
@@ -116,7 +116,7 @@ public class Main {
 		
 		System.out.println("-------------- RECIPES MAP START --------------\n");
 		/* Récupère les recettes depuis la base de données */
-		Map<Integer, Tree> recipes = RecipeDBReader.extractTree(items);
+		Map<Integer, Tree> recipes = RecipeDBReader.extractRecipe();
 		System.out.println(recipes.toString());
 		System.out.println("-------------- RECIPES MAP END --------------\n\n");
 		
