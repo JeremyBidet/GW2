@@ -15,7 +15,7 @@ package fr.whyt.item;
  * @author WhyT
  *
  */
-public enum Scarcity {
+public enum Rarity {
 	
 	NORMAL,
 	RAFFINE,
@@ -27,7 +27,7 @@ public enum Scarcity {
 	
 	public static String union() {
 		StringBuilder sb = new StringBuilder();
-		for(Scarcity t : Scarcity.values()) {
+		for(Rarity t : Rarity.values()) {
 			sb.append(t.name()).append("|");
 		}
 		return sb.deleteCharAt(sb.length()-1).toString();

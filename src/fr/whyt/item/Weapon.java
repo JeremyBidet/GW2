@@ -17,17 +17,17 @@ public class Weapon extends Item {
 	private final Damage damage;
 	private final Bonus bonus;
 
-	public Weapon(String name, Scarcity scarcity, int level, Currency price,
+	public Weapon(String name, Rarity rarity, int level, Currency price,
 			Damage damage, Bonus bonus, WeaponType weapon) {
-		super(name, ARME, scarcity, level, price);
+		super(name, ARME, rarity, level, price);
 		this.damage = damage;
 		this.bonus = bonus;
 		this.weapon = weapon;
 	}
 
-	public Weapon(String name, Scarcity scarcity, int level, int price,
+	public Weapon(String name, Rarity rarity, int level, int price,
 			Damage damage, Bonus bonus, WeaponType weapon) {
-		super(name, ARME, scarcity, level, price);
+		super(name, ARME, rarity, level, price);
 		this.damage = damage;
 		this.bonus = bonus;
 		this.weapon = weapon;

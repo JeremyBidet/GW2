@@ -8,7 +8,7 @@ import java.util.Map;
 
 import fr.whyt.craft.Tree;
 import fr.whyt.item.Item;
-import fr.whyt.item.Scarcity;
+import fr.whyt.item.Rarity;
 import fr.whyt.item.StatType;
 import fr.whyt.item.Type;
 import fr.whyt.item.WeaponType;
@@ -50,7 +50,7 @@ public interface DBReader {
 				+ "(?<craftmaterial>\""
 					+ "(?<name>.+)\" "
 					+ "(?<type>(?i)" + Type.union() + ") "
-					+ "(?<scarcity>(?i)" + Scarcity.union() + ") "
+					+ "(?<scarcity>(?i)" + Rarity.union() + ") "
 					+ "(?<level>\\d+) "
 					+ "(?<price>\\d+))"
 				+ "(?<weapon> "

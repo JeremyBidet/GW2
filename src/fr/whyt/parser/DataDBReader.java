@@ -1,12 +1,12 @@
 package fr.whyt.parser;
 
-import static fr.whyt.item.Scarcity.CHEF_D_OEUVRE;
-import static fr.whyt.item.Scarcity.ELEVE;
-import static fr.whyt.item.Scarcity.EXOTIQUE;
-import static fr.whyt.item.Scarcity.LEGENDAIRE;
-import static fr.whyt.item.Scarcity.NORMAL;
-import static fr.whyt.item.Scarcity.RAFFINE;
-import static fr.whyt.item.Scarcity.RARE;
+import static fr.whyt.item.Rarity.CHEF_D_OEUVRE;
+import static fr.whyt.item.Rarity.ELEVE;
+import static fr.whyt.item.Rarity.EXOTIQUE;
+import static fr.whyt.item.Rarity.LEGENDAIRE;
+import static fr.whyt.item.Rarity.NORMAL;
+import static fr.whyt.item.Rarity.RAFFINE;
+import static fr.whyt.item.Rarity.RARE;
 import static fr.whyt.item.StatType.ALTERATION;
 import static fr.whyt.item.StatType.CRITIQUE;
 import static fr.whyt.item.StatType.GUERISON;
@@ -52,7 +52,7 @@ import fr.whyt.item.Bonus;
 import fr.whyt.item.CraftMaterial;
 import fr.whyt.item.Damage;
 import fr.whyt.item.Item;
-import fr.whyt.item.Scarcity;
+import fr.whyt.item.Rarity;
 import fr.whyt.item.Stat;
 import fr.whyt.item.StatType;
 import fr.whyt.item.Type;
@@ -81,7 +81,7 @@ public class DataDBReader implements DBReader, DBConnect {
 		}
 	}
 	
-	private static Scarcity getScarcity (String scarcity) {
+	private static Rarity getScarcity (String scarcity) {
 		switch (scarcity.toUpperCase()) {
 			case "NORMAL": return NORMAL;
 			case "RAFFINE": return RAFFINE;
@@ -159,7 +159,7 @@ public class DataDBReader implements DBReader, DBConnect {
 				if(item == null || item.isEmpty()) continue; // ligne vide ou commentaire
 				String name = m.group("name");
 				Type type = getType(m.group("type"));
-				Scarcity scarcity = getScarcity(m.group("scarcity"));
+				Rarity rarity = getScarcity(m.group("scarcity"));
 				int level = Integer.parseInt(m.group("level"));
 				int price = Integer.parseInt(m.group("price"));
 				switch (type) {
@@ -169,13 +169,13 @@ public class DataDBReader implements DBReader, DBConnect {
 								Integer.parseInt(m.group("highdamage")), 
 								Integer.parseInt(m.group("lowdamage")));
 						Bonus bonus = getBonus(m.group("bonuslist"));
-						Item new_weapon = new Weapon(name, scarcity, level, price, damage, bonus, weapontype);
+						Item new_weapon = new Weapon(name, rarity, level, price, damage, bonus, weapontype);
 						if(!items.containsKey(new_weapon.getId())) {
 							items.put(new_weapon.getId(), new_weapon);
 						}
 						break;
 					case ARTISANAT:
-						Item new_craft_material = new CraftMaterial(name, scarcity, level, price);
+						Item new_craft_material = new CraftMaterial(name, rarity, level, price);
 						if(!items.containsKey(new_craft_material.getId())) {
 							items.put(new_craft_material.getId(), new_craft_material);
 						}
