@@ -23,5 +23,14 @@ public enum StatType {
 	GUERISON,
 	CRITIQUE,
 	PRECISION,
-	ALTERATION
+	ALTERATION;
+	
+	public static String union() {
+		StringBuilder sb = new StringBuilder();
+		for(StatType t : StatType.values()) {
+			sb.append(t.name()).append("|");
+		}
+		return sb.deleteCharAt(sb.length()-1).toString();
+	}
+	
 }

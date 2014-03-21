@@ -19,15 +19,6 @@ public class Damage {
 	}
 	
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + higher;
-		result = prime * result + lower;
-		return result;
-	}
-
-	@Override
 	public boolean equals(Object o) {
 		return o instanceof Damage 
 				&& ((Damage)o).lower == lower 

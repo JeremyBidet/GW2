@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -56,7 +55,6 @@ public class RecipeDBReader implements DBReader, DBConnect {
 		if(!recipe.exists() || !recipe.canRead()) {
 			return null;
 		}
-		Map<Integer, Tree> recipes = new HashMap<Integer, Tree>(10, .90f);
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(recipe));
 			Pattern p = Pattern.compile(recipeRegExp);
@@ -64,22 +62,11 @@ public class RecipeDBReader implements DBReader, DBConnect {
 			for (String line; (line = br.readLine()) != null; ) {
 				Matcher m = p.matcher(line);
 				if(!m.matches()) continue; // ligne non valide
-				System.out.println(
-						"group 0 total : \"" + m.group() + "\"\n"
-						+ "\tgroup 1 recipe : \"" + m.group("recipe") + "\"\n"
-						+ "\t\tgroup 2 indent : \"" + m.group("indent") + "\"\n"
-						+ "\t\tgroup 3 name : \"" + m.group("name") + "\"\n"
-						+ "\t\tgroup 4 quantity : \"" + m.group("quantity") + "\"\n"
-						+ "\tgroup 5 comment : \"" + m.group("comment") + "\"\n"
-						+ "\t\tgroup 6 content : \"" + m.group("content") + "\"\n");
-				
 				String recipe = m.group("recipe");
 				if(recipe == null || recipe.isEmpty()) continue; // pas de recettes : vide ou commentaire seul
-				
 				String indent = m.group("indent");
 				String name = m.group("name");
 				String quantity = m.group("quantity");
-				
 				if(indent.length() > 0 && root != null) { // ingrédient et recette pré-lue
 					Item tmp = findItem(name); // cherche l'Item dans la map suivant son nom
 					if(tmp == null) continue;
@@ -116,7 +103,7 @@ public class RecipeDBReader implements DBReader, DBConnect {
 		Iterator<Item> it = items.values().iterator();
 		while(it.hasNext()) {
 			Item item = it.next();
-			if(item.getName().toLowerCase().equals(name)) return item;
+			if(item.getName().toLowerCase().equals(name.toLowerCase())) return item;
 		}
 		return null;
 	}

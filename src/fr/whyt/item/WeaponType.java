@@ -45,6 +45,7 @@ package fr.whyt.item;
  *
  */
 public enum WeaponType {
+	
 	ARC_COURT,
 	ARC_LONG,
 	BATON,
@@ -63,5 +64,14 @@ public enum WeaponType {
 	PISTOLET,
 	SCEPTRE,
 	TORCHE,
-	TRIDENT
+	TRIDENT;
+	
+	public static String union() {
+		StringBuilder sb = new StringBuilder();
+		for(WeaponType t : WeaponType.values()) {
+			sb.append(t.name()).append("|");
+		}
+		return sb.deleteCharAt(sb.length()-1).toString();
+	}
+	
 }

@@ -40,16 +40,6 @@ public class Currency {
 	}
 	
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + bronze;
-		result = prime * result + gold;
-		result = prime * result + silver;
-		return result;
-	}
-
-	@Override
 	public boolean equals(Object o) {
 		return o instanceof Currency 
 				&& ((Currency)o).bronze == bronze 

@@ -88,18 +88,6 @@ public abstract class Item {
 	}
 	
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + level;
-		result = prime * result + ((name == null) ? 0 : name.toLowerCase().hashCode());
-		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		result = prime * result + ((scarcity == null) ? 0 : scarcity.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		return result;
-	}
-	
-	@Override
 	public boolean equals(Object o) {
 		return o instanceof Item 
 				&& ((Item)o).name.equalsIgnoreCase(name) 

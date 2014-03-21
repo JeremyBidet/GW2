@@ -19,5 +19,13 @@ public enum Type {
 	COLIFICHET,
 	ARTISANAT,
 	RUNE,
-	CACHET
+	CACHET;
+	
+	public static String union() {
+		StringBuilder sb = new StringBuilder();
+		for(Type t : Type.values()) {
+			sb.append(t.name()).append("|");
+		}
+		return sb.deleteCharAt(sb.length()-1).toString();
+	}
 }

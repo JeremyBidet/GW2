@@ -58,7 +58,7 @@
 // "NOM" TYPE RARETE NIVEAU PRIX SOUSTYPE DEGATMIN-DEGATMAX BONUSVALEUR BONUSTYPE BONUSVALEUR BONUSTYPE ...
 "Couperet de bandit solide" ARME RARE 35 11738 HACHE 400-500 30 PUISSANCE 24 VITALITE 24 ROBUSTESSE
 "Inscription enchantée sur plaque en fer solide" ARTISANAT RARE 125 4052
-"Hampe de hache en fer" ARTISANAT RAFFINE 125-1002 // useless
+"Hampe de hache en fer" ARTISANAT RAFFINE 125 1002 // useless
 "Lame de hache en fer" ARTISANAT RAFFINE 125 986 // useless
 "Petite ecaille" ARTISANAT RARE 125 155 // T3
 "Goujon sur plaque en fer" ARTISANAT CHEF_D_OEUVRE 125 1025

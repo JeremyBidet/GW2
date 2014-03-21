@@ -16,11 +16,21 @@ package fr.whyt.item;
  *
  */
 public enum Scarcity {
+	
 	NORMAL,
 	RAFFINE,
 	CHEF_D_OEUVRE,
 	RARE,
 	EXOTIQUE,
 	ELEVE,
-	LEGENDAIRE
+	LEGENDAIRE;
+	
+	public static String union() {
+		StringBuilder sb = new StringBuilder();
+		for(Scarcity t : Scarcity.values()) {
+			sb.append(t.name()).append("|");
+		}
+		return sb.deleteCharAt(sb.length()-1).toString();
+	}
+	
 }

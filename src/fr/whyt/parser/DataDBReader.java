@@ -121,16 +121,10 @@ public class DataDBReader implements DBReader, DBConnect {
 	
 	private static Bonus getBonus (String s_bonus) {
 		Stat[] bonus = new Stat[0];
-		String regex = "(?<bonus>(?<value>\\d+) (?<type>\\w+)[ ]?)*";
+		String regex = "(?<bonus>(?<value>\\d+) (?<type>\\w+)[ ]?)";
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(s_bonus);
-		while(m.matches()) {
-			System.out.println(
-					"group 0 total : \"" + m.group() + "\"\n"
-					+ "group 1 bonus : \"" + m.group("bonus") + "\"\n"
-					+ "\tgroup 2 value : \"" + m.group("value") + "\"\n"
-					+ "\tgroup 3 type : \"" + m.group("type") + "\"\n");
-			
+		while(m.find()) {
 			String type = m.group("type"); // to StatType
 			String s_value = m.group("value"); // to int
 			StatType stattype;
@@ -160,30 +154,9 @@ public class DataDBReader implements DBReader, DBConnect {
 			Pattern p = Pattern.compile(dataRegExp);
 			for (String line; (line = br.readLine()) != null; ) {
 				Matcher m = p.matcher(line);
-				
 				if(!m.matches()) continue; // ligne non valide
-				System.out.println(
-						"group 0 total : " + m.group() + "\n"
-						+ "group 1 item : " + m.group("item") + "\n"
-						+ "\tgroup 2 craftmaterial : " + m.group("craftmaterial") + "\n"
-						+ "\t\tgroup 3 name : " + m.group("name") + "\n"
-						+ "\t\tgroup 4 type : " + m.group("type") + "\n"
-						+ "\t\tgroup 5 scarcity : " + m.group("scarcity") + "\n"
-						+ "\t\tgroup 6 level : " + m.group("level") + "\n"
-						+ "\t\tgroup 7 price : " + m.group("price") + "\n"
-						+ "\tgroup 8 weapon : " + m.group("weapon") + "\n"
-						+ "\t\tgroup 9 weapontype : " + m.group("weapontype") + "\n"
-						+ "\t\tgroup 10 lowdamage : " + m.group("lowdamage") + "\n"
-						+ "\t\tgroup 11 highdamage : " + m.group("highdamage") + "\n"
-						+ "\t\tgroup 12 bonus : " + m.group("bonus") + "\n"
-						+ "\t\t\tgroup 13 bonusvalue : " + m.group("bonusvalue") + "\n"
-						+ "\t\t\tgroup 14 bonustype : " + m.group("bonustype") + "\n"
-						+ "group 15 comment : " + m.group("comment") + "\n"
-						+ "\tgroup 16 content : " + m.group("content") + "\n");
-				
 				String item = m.group("item");
 				if(item == null || item.isEmpty()) continue; // ligne vide ou commentaire
-				
 				String name = m.group("name");
 				Type type = getType(m.group("type"));
 				Scarcity scarcity = getScarcity(m.group("scarcity"));
@@ -195,7 +168,7 @@ public class DataDBReader implements DBReader, DBConnect {
 						Damage damage = new Damage(
 								Integer.parseInt(m.group("highdamage")), 
 								Integer.parseInt(m.group("lowdamage")));
-						Bonus bonus = getBonus(m.group("bonus"));
+						Bonus bonus = getBonus(m.group("bonuslist"));
 						Item new_weapon = new Weapon(name, scarcity, level, price, damage, bonus, weapontype);
 						if(!items.containsKey(new_weapon.getId())) {
 							items.put(new_weapon.getId(), new_weapon);
