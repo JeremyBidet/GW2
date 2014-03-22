@@ -19,7 +19,7 @@ public abstract class Item {
 	private final int id;
 	private final String name;
 	private final Type type;
-	private final Scarcity scarcity;
+	private final Rarity rarity;
 	private final int level;
 	private final Currency price;
 	
@@ -28,17 +28,17 @@ public abstract class Item {
 	 * L'ID unique est créé à partir du hashcode du nom en minuscule concaténé au type et à la rareté en majuscule de l'objet.<br>
 	 * @param name nom de l'item
 	 * @param type type de l'item ({@link Type})
-	 * @param scarcity rareté de l'item ({@link Scarcity})
+	 * @param rarity rareté de l'item ({@link Rarity})
 	 * @param level niveau de l'item
 	 * @param price prix de l'item à l'achat/vente en monnaie de jeu ({@link Currency})
 	 */
-	public Item (String name, Type type, Scarcity scarcity, int level, Currency price) {
-		// calculate the hashcode of concat lowercase name and uppercase scarcity, type string
-		this.id = (name.toLowerCase() + type.toString().toUpperCase() + scarcity.toString().toUpperCase())
+	public Item (String name, Type type, Rarity rarity, int level, Currency price) {
+		// calculate the hashcode of concat lowercase name and uppercase rarity, type string
+		this.id = (name.toLowerCase() + type.toString().toUpperCase() + rarity.toString().toUpperCase())
 				.hashCode();
 		this.name = name;
 		this.type = type;
-		this.scarcity = scarcity;
+		this.rarity = rarity;
 		this.level = level;
 		this.price = price;
 	}
@@ -48,17 +48,17 @@ public abstract class Item {
 	 * L'ID unique est créé à partir du hashcode du nom en minuscule concaténé au type et à la rareté en majuscule de l'objet.<br>
 	 * @param name nom de l'item
 	 * @param type type de l'item ({@link Type})
-	 * @param scarcity rareté de l'item ({@link Scarcity})
+	 * @param rarity rareté de l'item ({@link Rarity})
 	 * @param level niveau de l'item (0-80)
 	 * @param price prix de l'item à l'achat/vente sous forme entière (bronze)
 	 */
-	public Item (String name, Type type, Scarcity scarcity, int level, int price) {
-		// calculate the hashcode of concat lowercase name and uppercase scarcity, type string
-		this.id = (name.toLowerCase() + type.toString().toUpperCase() + scarcity.toString().toUpperCase())
+	public Item (String name, Type type, Rarity rarity, int level, int price) {
+		// calculate the hashcode of concat lowercase name and uppercase rarity, type string
+		this.id = (name.toLowerCase() + type.toString().toUpperCase() + rarity.toString().toUpperCase())
 				.hashCode();
 		this.name = name;
 		this.type = type;
-		this.scarcity = scarcity;
+		this.rarity = rarity;
 		this.level = level;
 		this.price = new Currency (price/10000, price/100%100, price%100);
 	}
@@ -94,14 +94,14 @@ public abstract class Item {
 				&& ((Item)o).type.equals(type) 
 				&& ((Item)o).level == level 
 				&& ((Item)o).price.equals(price) 
-				&& ((Item)o).scarcity.equals(scarcity);
+				&& ((Item)o).rarity.equals(rarity);
 	}
 
 	@Override
 	public String toString () {
 		return " _Item" + borderLength() + "\n"
 				+ "| " + name + "\n"
-				+ "| " + scarcity + "\n"
+				+ "| " + rarity + "\n"
 				+ "| " + type + "\n"
 				+ "| " + level + "\n"
 				+ "| " + price + "\n";

@@ -11,12 +11,12 @@ import static fr.whyt.item.Type.ARTISANAT;
  */
 public class CraftMaterial extends Item {
 	
-	public CraftMaterial(String name, Scarcity scarcity, int level, Currency price) {
-		super(name, ARTISANAT, scarcity, level, price);
+	public CraftMaterial(String name, Rarity rarity, int level, Currency price) {
+		super(name, ARTISANAT, rarity, level, price);
 	}
 
-	public CraftMaterial(String name, Scarcity scarcity, int level, int price) {
-		super(name, ARTISANAT, scarcity, level, price);
+	public CraftMaterial(String name, Rarity rarity, int level, int price) {
+		super(name, ARTISANAT, rarity, level, price);
 	}
 	
 	@Override

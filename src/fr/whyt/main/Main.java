@@ -1,9 +1,9 @@
 package fr.whyt.main;
 
-import static fr.whyt.item.Scarcity.CHEF_D_OEUVRE;
-import static fr.whyt.item.Scarcity.NORMAL;
-import static fr.whyt.item.Scarcity.RAFFINE;
-import static fr.whyt.item.Scarcity.RARE;
+import static fr.whyt.item.Rarity.CHEF_D_OEUVRE;
+import static fr.whyt.item.Rarity.NORMAL;
+import static fr.whyt.item.Rarity.RAFFINE;
+import static fr.whyt.item.Rarity.RARE;
 import static fr.whyt.item.StatType.PUISSANCE;
 import static fr.whyt.item.StatType.ROBUSTESSE;
 import static fr.whyt.item.StatType.VITALITE;
