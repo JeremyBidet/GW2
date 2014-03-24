@@ -53,6 +53,10 @@ public class Node implements Cloneable {
 		this.sons = sons;
 	}
 	
+	public Long getID() {
+		return item.getId();
+	}
+	
 	public int getLevel() {
 		return this.level;
 	}
@@ -84,11 +88,6 @@ public class Node implements Cloneable {
 	@Override
 	public Node clone() {
 		return new Node(this.quantity, this.item, this.level, this.sons);
-	}
-	
-	@Override
-	public int hashCode() {
-		return item.getId();
 	}
 	
 	@Override

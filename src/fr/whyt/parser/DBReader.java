@@ -8,10 +8,10 @@ import java.util.Map;
 
 import fr.whyt.craft.Tree;
 import fr.whyt.item.Item;
-import fr.whyt.item.Rarity;
-import fr.whyt.item.StatType;
-import fr.whyt.item.Type;
-import fr.whyt.item.WeaponType;
+import fr.whyt.item.enums.Type;
+import fr.whyt.item.enums.WeaponType;
+import fr.whyt.item.enums.Rarity;
+import fr.whyt.item.enums.AttributeType;
 
 
 /**
@@ -59,7 +59,7 @@ public interface DBReader {
 					+ "(?<bonuslist>"
 						+ "(?<bonus>"
 							+ "(?<bonusvalue>\\d+) "
-							+ "(?<bonustype>(?i)" + StatType.union() + ")[ ]?)*))?)?"
+							+ "(?<bonustype>(?i)" + AttributeType.union() + ")[ ]?)*))?)?"
 			+ "(?<comment>\\s*(?<content>//.*)?)?";
 	
 	/*

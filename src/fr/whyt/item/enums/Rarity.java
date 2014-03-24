@@ -1,4 +1,4 @@
-package fr.whyt.item;
+package fr.whyt.item.enums;
 
 /**
  * Enumération réprésentant les différentes raretés dans le jeu.<br><br>
@@ -17,13 +17,29 @@ package fr.whyt.item;
  */
 public enum Rarity {
 	
-	NORMAL,
-	RAFFINE,
-	CHEF_D_OEUVRE,
-	RARE,
-	EXOTIQUE,
-	ELEVE,
-	LEGENDAIRE;
+	BASIC("Basic"),
+	FINE("Fine"),
+	MASTERWORK("Masterwork"),
+	RARE("Rare"),
+	EXOTIC("Exotic"),
+	ASCENDED("Ascended"),
+	LEGENDARY("Legendary"),
+	JUNK("Junk");
+	
+	private String type;
+
+	private Rarity(String type) {
+		this.type = type;
+	}
+
+	public static Rarity resolve(String type) {
+		for (Rarity value : Rarity.values()) {
+			if (value.type.equals(type)) {
+				return value;
+			}
+		}
+		throw new IllegalArgumentException(type);
+	}
 	
 	public static String union() {
 		StringBuilder sb = new StringBuilder();

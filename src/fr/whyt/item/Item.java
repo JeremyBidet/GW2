@@ -1,109 +1,111 @@
 package fr.whyt.item;
 
+import java.util.List;
+
+import fr.whyt.item.components.Currency;
+import fr.whyt.item.enums.Flag;
+import fr.whyt.item.enums.GameType;
+import fr.whyt.item.enums.Rarity;
+import fr.whyt.item.enums.Type;
+import fr.whyt.persona.enums.Restriction;
 
 /**
  * Représente un objet dans le jeu.<br>
- * Il possède un nom, un type, une rareté, un niveau et une valeur.<br><br>
- * Il est possible d'instancier un objet avec deux valeurs différentes :<br>
- * <ul>
- * <li>Avec la monnaie du jeu</li>
- * <li>Avec un entier représentant la plus petite devise de la monnaie du jeu</li>
- * </ul>
+ * Possède un id, un nom, une description, un type, un niveau, une rareté,
+ *  une valeur marchande de base, une valeur marchande noire, une image,
+ *  des types de jeu, des drapeaux et des rectrictions.<br>
  * <br>
+ * @see Rarity
  * @see Currency
- * @author Jeremy
- *
+ * @see GameType
+ * @see Flag
+ * @see Restriction
+ * @author WhyT
  */
 public abstract class Item {
 
-	private final int id;
+	private final Long id;
 	private final String name;
+	private final String description;
 	private final Type type;
+	private final Integer level;
 	private final Rarity rarity;
-	private final int level;
-	private final Currency price;
-	
-	/**
-	 * Crée un item. N'accepte que la monnaie de jeu.<br>
-	 * L'ID unique est créé à partir du hashcode du nom en minuscule concaténé au type et à la rareté en majuscule de l'objet.<br>
-	 * @param name nom de l'item
-	 * @param type type de l'item ({@link Type})
-	 * @param rarity rareté de l'item ({@link Rarity})
-	 * @param level niveau de l'item
-	 * @param price prix de l'item à l'achat/vente en monnaie de jeu ({@link Currency})
-	 */
-	public Item (String name, Type type, Rarity rarity, int level, Currency price) {
-		// calculate the hashcode of concat lowercase name and uppercase rarity, type string
-		this.id = (name.toLowerCase() + type.toString().toUpperCase() + rarity.toString().toUpperCase())
-				.hashCode();
-		this.name = name;
-		this.type = type;
-		this.rarity = rarity;
-		this.level = level;
-		this.price = price;
-	}
-	
-	/**
-	 * Crée un item. Accepte la valeur entière de l'objet.<br>
-	 * L'ID unique est créé à partir du hashcode du nom en minuscule concaténé au type et à la rareté en majuscule de l'objet.<br>
-	 * @param name nom de l'item
-	 * @param type type de l'item ({@link Type})
-	 * @param rarity rareté de l'item ({@link Rarity})
-	 * @param level niveau de l'item (0-80)
-	 * @param price prix de l'item à l'achat/vente sous forme entière (bronze)
-	 */
-	public Item (String name, Type type, Rarity rarity, int level, int price) {
-		// calculate the hashcode of concat lowercase name and uppercase rarity, type string
-		this.id = (name.toLowerCase() + type.toString().toUpperCase() + rarity.toString().toUpperCase())
-				.hashCode();
-		this.name = name;
-		this.type = type;
-		this.rarity = rarity;
-		this.level = level;
-		this.price = new Currency (price/10000, price/100%100, price%100);
-	}
-	
-	/**
-	 * Récupère l'Id de l'objet
-	 * @return l'id de l'objet
-	 */
-	public int getId() {
-		return id;
-	}
-	
-	/**
-	 * Récupère le nom de l'objet
-	 * @return le nom de l'objet
-	 */
-	public String getName () {
-		return name;
-	}
-	
-	private String borderLength() {
-		StringBuilder sb = new StringBuilder();
-		for(int i=0; i<name.length()-3; i++) {
-			sb.append("_");
-		}
-		return sb.toString();
-	}
-	
-	@Override
-	public boolean equals(Object o) {
-		return o instanceof Item 
-				&& ((Item)o).name.equalsIgnoreCase(name) 
-				&& ((Item)o).type.equals(type) 
-				&& ((Item)o).level == level 
-				&& ((Item)o).price.equals(price) 
-				&& ((Item)o).rarity.equals(rarity);
-	}
+	private final Currency basePrice;
+	private Currency blPrice;
+	private final Long iconFileID;
+	private final String iconFileSignature;
+	private final List<GameType> gameType;
+	private final List<Flag> flags;
+	private final List<Restriction> restrictions;
 
-	@Override
-	public String toString () {
-		return " _Item" + borderLength() + "\n"
-				+ "| " + name + "\n"
-				+ "| " + rarity + "\n"
-				+ "| " + type + "\n"
-				+ "| " + level + "\n"
-				+ "| " + price + "\n";
+	/**
+	 * Crée un item.<br>
+	 * @param id 					identifiant unique de l'item
+	 * @param name 					nom de l'item
+	 * @param description 			description de l'item
+	 * @param type					type de l'item ({@link Type})
+	 * @param rarity				rareté de l'item ({@link Rarity})
+	 * @param level					niveau de l'item
+	 * @param basePrice				prix de l'item à l'achat/vente chez un marchand ({@link Currency})
+	 * @param blPrice				prix de l'item à l'achat/vente au lion noir ({@link Currency})
+	 * @param iconFileID			id de l'image de l'item
+	 * @param iconFileSignature		signature de l'image de l'item
+	 * @param gameType				type de jeu de l'item ({@link GameType})
+	 * @param flags					drapeaux de l'item ({@link Flag})
+	 * @param restrictions			restrictions de personnages de l'item ({@link Restriction})
+	 */
+	public Item(
+			Long id, String name, String description, Type type, Integer level, Rarity rarity,
+			Integer basePrice, Integer blPrice, Long iconFileID, String iconFileSignature,
+			List<GameType> gameType, List<Flag> flags, List<Restriction> restrictions) {
+		
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.type = type;
+		this.rarity = rarity;
+		this.level = level;
+		this.basePrice = new Currency(basePrice/10000, basePrice/100%100, basePrice%100);
+		this.blPrice = new Currency(blPrice/10000, blPrice/100%100, blPrice%100);
+		this.iconFileID = iconFileID;
+		this.iconFileSignature = iconFileSignature;
+		this.gameType = gameType;
+		this.flags = flags;
+		this.restrictions = restrictions;
 	}
+	/* ** Getters ** */
+	public Long getId() 						{ return id; }
+	public String getName() 					{ return name; }	
+	public String getDescription() 				{ return description; }
+	public Type getType() 						{ return type; }
+	public Integer getLevel() 					{ return level; }
+	public Rarity getRarity() 					{ return rarity; }
+	public Currency getBasePrice() 				{ return basePrice; }
+	public Currency getBlPrice() 				{ return blPrice; }
+	public Long getIconFileID() 				{ return iconFileID; }
+	public String getIconFileSignature() 		{ return iconFileSignature; }
+	public List<GameType> getGameType() 		{ return gameType; }
+	public List<Flag> getFlags() 				{ return flags; }
+	public List<Restriction> getRestrictions() 	{ return restrictions; }
+	/* ** Setters ** */
+	public void setBl_price(Currency blPrice) 	{ this.blPrice = blPrice; }
+	/* ** Overrides ** */
+	@Override public boolean equals(Object o)	{ return o instanceof Item && ((Item) o).id == id; }
+	@Override public String toString() {
+		return " _Item______________________________\n"
+				+ "| " + id + "\n"
+				+ "| " + name + "\n"
+				+ "| " + description + "\n"
+				+ "| " + type + "\n"
+				+ "| " + rarity + "\n"
+				+ "| " + level + "\n"
+				+ "| " + basePrice + "\n"
+				+ "| " + blPrice + "\n"
+				+ "| " + iconFileID + "\n"
+				+ "| " + iconFileSignature + "\n"
+				+ "| " + gameType + "\n"
+				+ "| " + flags + "\n"
+				+ "| " + restrictions + "\n";
+	}
+	
 }

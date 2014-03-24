@@ -1,43 +1,66 @@
 package fr.whyt.parser;
 
-import static fr.whyt.item.Rarity.CHEF_D_OEUVRE;
-import static fr.whyt.item.Rarity.ELEVE;
-import static fr.whyt.item.Rarity.EXOTIQUE;
-import static fr.whyt.item.Rarity.LEGENDAIRE;
-import static fr.whyt.item.Rarity.NORMAL;
-import static fr.whyt.item.Rarity.RAFFINE;
-import static fr.whyt.item.Rarity.RARE;
-import static fr.whyt.item.StatType.ALTERATION;
-import static fr.whyt.item.StatType.CRITIQUE;
-import static fr.whyt.item.StatType.GUERISON;
-import static fr.whyt.item.StatType.PRECISION;
-import static fr.whyt.item.StatType.PUISSANCE;
-import static fr.whyt.item.StatType.ROBUSTESSE;
-import static fr.whyt.item.StatType.VITALITE;
-import static fr.whyt.item.Type.ARME;
-import static fr.whyt.item.Type.ARTISANAT;
-import static fr.whyt.item.Type.CACHET;
-import static fr.whyt.item.Type.COLIFICHET;
-import static fr.whyt.item.Type.RUNE;
-import static fr.whyt.item.WeaponType.ARC_COURT;
-import static fr.whyt.item.WeaponType.ARC_LONG;
-import static fr.whyt.item.WeaponType.BATON;
-import static fr.whyt.item.WeaponType.BOUCLIER;
-import static fr.whyt.item.WeaponType.COR_DE_GUERRE;
-import static fr.whyt.item.WeaponType.DAGUE;
-import static fr.whyt.item.WeaponType.EPEE;
-import static fr.whyt.item.WeaponType.ESPADON;
-import static fr.whyt.item.WeaponType.FOCUS;
-import static fr.whyt.item.WeaponType.FUSIL;
-import static fr.whyt.item.WeaponType.FUSIL_HARPON;
-import static fr.whyt.item.WeaponType.HACHE;
-import static fr.whyt.item.WeaponType.LANCE;
-import static fr.whyt.item.WeaponType.MARTEAU;
-import static fr.whyt.item.WeaponType.MASSE;
-import static fr.whyt.item.WeaponType.PISTOLET;
-import static fr.whyt.item.WeaponType.SCEPTRE;
-import static fr.whyt.item.WeaponType.TORCHE;
-import static fr.whyt.item.WeaponType.TRIDENT;
+import static fr.whyt.item.enums.Type.ARMOR;
+import static fr.whyt.item.enums.Type.BACK;
+import static fr.whyt.item.enums.Type.BAG;
+import static fr.whyt.item.enums.Type.CONSUMABLE;
+import static fr.whyt.item.enums.Type.CONTAINER;
+import static fr.whyt.item.enums.Type.CRAFTMATERIAL;
+import static fr.whyt.item.enums.Type.GATHERING;
+import static fr.whyt.item.enums.Type.GIZMO;
+import static fr.whyt.item.enums.Type.MINIPET;
+import static fr.whyt.item.enums.Type.TOOL;
+import static fr.whyt.item.enums.Type.TRINKET;
+import static fr.whyt.item.enums.Type.TROPHY;
+import static fr.whyt.item.enums.Type.UPGRADE_COMPONENT;
+import static fr.whyt.item.enums.Type.WEAPON;
+import static fr.whyt.item.enums.Rarity.BASIC;
+import static fr.whyt.item.enums.Rarity.FINE;
+import static fr.whyt.item.enums.Rarity.MASTERWORK;
+import static fr.whyt.item.enums.Rarity.RARE;
+import static fr.whyt.item.enums.Rarity.EXOTIC;
+import static fr.whyt.item.enums.Rarity.ASCENDED;
+import static fr.whyt.item.enums.Rarity.LEGENDARY;
+import static fr.whyt.item.enums.Rarity.JUNK;
+import static fr.whyt.item.enums.WeaponType.AXE;
+//import static fr.whyt.item.enums.WeaponType.BAG;
+import static fr.whyt.item.enums.WeaponType.BULK;
+import static fr.whyt.item.enums.WeaponType.COMPONENT;
+//import static fr.whyt.item.enums.WeaponType.CONSUMABLE;
+import static fr.whyt.item.enums.WeaponType.DAGGER;
+import static fr.whyt.item.enums.WeaponType.DESSERT;
+import static fr.whyt.item.enums.WeaponType.DYE;
+import static fr.whyt.item.enums.WeaponType.EARRING;
+import static fr.whyt.item.enums.WeaponType.FEAST;
+import static fr.whyt.item.enums.WeaponType.FOCUS;
+import static fr.whyt.item.enums.WeaponType.GREATSWORD;
+import static fr.whyt.item.enums.WeaponType.HAMMER;
+import static fr.whyt.item.enums.WeaponType.HARPOON;
+import static fr.whyt.item.enums.WeaponType.INGREDIENT_COOKING;
+import static fr.whyt.item.enums.WeaponType.INSCRIPTION;
+import static fr.whyt.item.enums.WeaponType.INSIGNIA;
+import static fr.whyt.item.enums.WeaponType.LONGBOW;
+import static fr.whyt.item.enums.WeaponType.MACE;
+import static fr.whyt.item.enums.WeaponType.MEAL;
+import static fr.whyt.item.enums.WeaponType.PISTOL;
+import static fr.whyt.item.enums.WeaponType.POTION;
+import static fr.whyt.item.enums.WeaponType.REFINEMENT;
+import static fr.whyt.item.enums.WeaponType.RIFLE;
+import static fr.whyt.item.enums.WeaponType.SCEPTER;
+import static fr.whyt.item.enums.WeaponType.SEASONING;
+import static fr.whyt.item.enums.WeaponType.SHIELD;
+import static fr.whyt.item.enums.WeaponType.SHORTBOW;
+import static fr.whyt.item.enums.WeaponType.SNACK;
+import static fr.whyt.item.enums.WeaponType.SOUP;
+import static fr.whyt.item.enums.WeaponType.SPEARGUN;
+import static fr.whyt.item.enums.WeaponType.STAFF;
+import static fr.whyt.item.enums.WeaponType.SWORD;
+import static fr.whyt.item.enums.WeaponType.TORCH;
+import static fr.whyt.item.enums.WeaponType.TOY;
+import static fr.whyt.item.enums.WeaponType.TRIDENT;
+import static fr.whyt.item.enums.WeaponType.TWO_HANDED_TOY;
+//import static fr.whyt.item.enums.WeaponType.UPGRADE_COMPONENT;
+import static fr.whyt.item.enums.WeaponType.WARHORN;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -48,16 +71,14 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import fr.whyt.item.Bonus;
-import fr.whyt.item.CraftMaterial;
-import fr.whyt.item.Damage;
 import fr.whyt.item.Item;
-import fr.whyt.item.Rarity;
-import fr.whyt.item.Stat;
-import fr.whyt.item.StatType;
-import fr.whyt.item.Type;
-import fr.whyt.item.Weapon;
-import fr.whyt.item.WeaponType;
+import fr.whyt.item.components.Damage;
+import fr.whyt.item.enums.AttributeType;
+import fr.whyt.item.enums.Rarity;
+import fr.whyt.item.enums.Type;
+import fr.whyt.item.enums.WeaponType;
+import fr.whyt.item.extend.CraftMaterial;
+import fr.whyt.item.extend.Weapon;
 
 /**
  * Cette classe implémente {@link DBConnect}.<br>
@@ -72,24 +93,22 @@ public class DataDBReader implements DBReader, DBConnect {
 	
 	private static Type getType (String type) {
 		switch (type.toUpperCase()) {
-			case "ARME": return ARME;
-			case "ARTISANAT": return ARTISANAT;
-			case "CACHET": return CACHET;
-			case "COLIFICHET": return COLIFICHET;
-			case "RUNE": return RUNE;
+			case "ARME": return WEAPON;
+			case "ARTISANAT": return CRAFTMATERIAL;
 			default: return null;
 		}
 	}
 	
 	private static Rarity getScarcity (String scarcity) {
 		switch (scarcity.toUpperCase()) {
-			case "NORMAL": return NORMAL;
-			case "RAFFINE": return RAFFINE;
-			case "CHEF_D_OEUVRE": return CHEF_D_OEUVRE;
+			case "BASIC": return BASIC;
+			case "FINE": return FINE;
+			case "MASTERWORK": return MASTERWORK;
 			case "RARE": return RARE;
-			case "EXOTIQUE": return EXOTIQUE;
-			case "ELEVE": return ELEVE;
-			case "LEGENDAIRE": return LEGENDAIRE;
+			case "EXOTIC": return EXOTIC;
+			case "ASCENDED": return ASCENDED;
+			case "LEGENDARY": return LEGENDARY;
+			case "JUNK": return JUNK;
 			default: return null;
 		}
 	}
@@ -125,9 +144,9 @@ public class DataDBReader implements DBReader, DBConnect {
 		Pattern p = Pattern.compile(regex);
 		Matcher m = p.matcher(s_bonus);
 		while(m.find()) {
-			String type = m.group("type"); // to StatType
+			String type = m.group("type"); // to AttributeType
 			String s_value = m.group("value"); // to int
-			StatType stattype;
+			AttributeType stattype;
 			switch (type.toUpperCase()) {
 				case "PUISSANCE": stattype = PUISSANCE; break;
 				case "ROBUSTESSE": stattype = ROBUSTESSE; break;
@@ -163,7 +182,7 @@ public class DataDBReader implements DBReader, DBConnect {
 				int level = Integer.parseInt(m.group("level"));
 				int price = Integer.parseInt(m.group("price"));
 				switch (type) {
-					case ARME:
+					case WEAPON:
 						WeaponType weapontype = getWeaponType(m.group("weapontype"));
 						Damage damage = new Damage(
 								Integer.parseInt(m.group("highdamage")), 
@@ -174,7 +193,7 @@ public class DataDBReader implements DBReader, DBConnect {
 							items.put(new_weapon.getId(), new_weapon);
 						}
 						break;
-					case ARTISANAT:
+					case CRAFTMATERIAL:
 						Item new_craft_material = new CraftMaterial(name, rarity, level, price);
 						if(!items.containsKey(new_craft_material.getId())) {
 							items.put(new_craft_material.getId(), new_craft_material);

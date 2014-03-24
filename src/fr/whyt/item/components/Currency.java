@@ -1,4 +1,4 @@
-package fr.whyt.item;
+package fr.whyt.item.components;
 
 /**
  * Monnaie du jeu.<br>
