@@ -1,0 +1,2093 @@
+{
+	"24":{
+		"item_id":"24",
+		"name":"Sealed Package of Snowballs",
+		"description":"Open this package to create several snowballs that can hit anyone else holding a snowball.",
+		"type":"Consumable",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"0",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"Generic"
+		}
+		
+	},
+	"3943":{
+		"item_id":"3943",
+		"name":"Cloth Aquabreather",
+		"description":"<c=@flavor>\"Good for breathing.\"<br>—Lugung</c>",
+		"type":"Armor",
+		"level":"20",
+		"rarity":"Fine",
+		"vendor_value":"30",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"NoSalvage",
+			"NoSell",
+			"SoulbindOnAcquire"
+		],
+		"restrictions":[
+			
+		],
+		"armor":{
+			"type":"HelmAquatic",
+			"weight_class":"Light",
+			"defense":"13",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Healing",
+						"modifier":"6"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":""
+		}
+		
+	},
+	"16982":{
+		"item_id":"16982",
+		"name":"Ascalonian Tear",
+		"description":"The crystallized tears of Ascalonians caught in the Foefire.",
+		"type":"Trophy",
+		"level":"0",
+		"rarity":"Rare",
+		"vendor_value":"0",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"AccountBound",
+			"NoSell"
+		],
+		"restrictions":[
+			
+		]
+		
+	},
+	"21121":{
+		"item_id":"21121",
+		"name":"Sigil of Superior Agony",
+		"description":"Double-click to apply to a weapon.",
+		"type":"UpgradeComponent",
+		"level":"0",
+		"rarity":"Exotic",
+		"vendor_value":"0",
+		"game_types":[
+			"Pvp",
+			"PvpLobby"
+		],
+		"flags":[
+			"NoSalvage",
+			"NoSell",
+			"SoulbindOnAcquire"
+		],
+		"restrictions":[
+			
+		],
+		"upgrade_component":{
+			"type":"Default",
+			"flags":[
+				"Axe",
+				"LongBow",
+				"ShortBow",
+				"Dagger",
+				"Focus",
+				"Greatsword",
+				"Hammer",
+				"Harpoon",
+				"Mace",
+				"Pistol",
+				"Rifle",
+				"Scepter",
+				"Shield",
+				"Speargun",
+				"Staff",
+				"Sword",
+				"Torch",
+				"Trident",
+				"Warhorn"
+			],
+			"infusion_upgrade_flags":[
+				
+			],
+			"infix_upgrade":{
+				"buff":{
+					"skill_id":"9313",
+					"description":"Increase Inflicted Bleeding Duration: 10%"
+				},
+				"attributes":[
+					
+				]
+				
+			},
+			"suffix":"of Agony"
+		}
+		
+	},
+	"24546":{
+		"item_id":"24546",
+		"name":"Major Sigil of Fire",
+		"description":"Double-click to apply to a weapon.",
+		"type":"UpgradeComponent",
+		"level":"39",
+		"rarity":"Rare",
+		"vendor_value":"108",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"upgrade_component":{
+			"type":"Sigil",
+			"flags":[
+				"Axe",
+				"LongBow",
+				"ShortBow",
+				"Dagger",
+				"Focus",
+				"Greatsword",
+				"Hammer",
+				"Harpoon",
+				"Mace",
+				"Pistol",
+				"Rifle",
+				"Scepter",
+				"Shield",
+				"Speargun",
+				"Staff",
+				"Sword",
+				"Torch",
+				"Trident",
+				"Warhorn"
+			],
+			"infusion_upgrade_flags":[
+				
+			],
+			"infix_upgrade":{
+				"buff":{
+					"skill_id":"9443",
+					"description":"20% Chance on Critical: Trigger a Flame Blast for AoE Damage<br><c=@reminder>(Cooldown: 5 Seconds)</c>"
+				},
+				"attributes":[
+					
+				]
+				
+			},
+			"suffix":"of Fire"
+		}
+		
+	},
+	"24685":{
+		"item_id":"24685",
+		"name":"Minor Rune of the Afflicted",
+		"description":"Double-click to apply to a piece of Armor.",
+		"type":"UpgradeComponent",
+		"level":"0",
+		"rarity":"Masterwork",
+		"vendor_value":"16",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"upgrade_component":{
+			"type":"Rune",
+			"flags":[
+				"HeavyArmor",
+				"LightArmor",
+				"MediumArmor"
+			],
+			"infusion_upgrade_flags":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					
+				]
+			},
+			"suffix":"of the Afflicted"
+		}
+	},
+	"24772":{
+		"item_id":"24772",
+		"name":"Gold Doubloon",
+		"description":"Double-click to apply to an item with an unused upgrade slot.",
+		"type":"UpgradeComponent",
+		"level":"35",
+		"rarity":"Rare",
+		"vendor_value":"102",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"upgrade_component":{
+			"type":"Gem",
+			"flags":[
+				"HeavyArmor",
+				"LightArmor",
+				"MediumArmor",
+				"Trinket",
+				"Axe",
+				"LongBow",
+				"ShortBow",
+				"Dagger",
+				"Focus",
+				"Greatsword",
+				"Hammer",
+				"Harpoon",
+				"Mace",
+				"Pistol",
+				"Rifle",
+				"Scepter",
+				"Shield",
+				"Speargun",
+				"Staff",
+				"Sword",
+				"Torch",
+				"Trident",
+				"Warhorn"
+			],
+			"infusion_upgrade_flags":[
+				
+			],
+			"infix_upgrade":{
+				"buff":{
+					"skill_id":"247",
+					"description":"+2% Magic Find"
+				},
+				"attributes":[
+					
+				]
+			},
+			"suffix":"of Luck"
+		}
+	},
+	"13583":{
+		"item_id":"13583",
+		"name":"Carrion Destroyer Staff",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"396",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Staff",
+			"damage_type":"Physical",
+			"min_power":"985",
+			"max_power":"1111",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"179"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"128"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"128"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13591":{
+		"item_id":"13591",
+		"name":"Cleric's Destroyer Trident",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"396",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Trident",
+			"damage_type":"Physical",
+			"min_power":"905",
+			"max_power":"1000",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Healing",
+						"modifier":"179"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"128"
+					},
+					{
+						"attribute":"Toughness",
+						"modifier":"128"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13597":{
+		"item_id":"13597",
+		"name":"Carrion Destroyer Scepter",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Scepter",
+			"damage_type":"Physical",
+			"min_power":"895",
+			"max_power":"1010",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"90"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"64"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13604":{
+		"item_id":"13604",
+		"name":"Carrion Destroyer Focus",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Focus",
+			"damage_type":"Physical",
+			"min_power":"832",
+			"max_power":"883",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"90"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"64"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	}"23038": {"item_id":"23038","name":"Crude Salvage Kit","description":"Double-click to salvage crafting materials from an item in your inventory. Has a small chance of recovering upgrades from items.","type":"Tool","level":"0","rarity":"Basic","vendor_value":"4","game_types":["Activity",
+"Dungeon",
+"Pve",
+"Pvp",
+"PvpLobby",
+"Wvw"],"flags":["AccountBound",
+"NoSalvage",
+"NoSell"],"restrictions":[],"tool":{"type":"Salvage","charges":"15"}},
+	"13611":{
+		"item_id":"13611",
+		"name":"Carrion Destroyer Short Bow",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"396",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"ShortBow",
+			"damage_type":"Physical",
+			"min_power":"905",
+			"max_power":"1000",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"179"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"128"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"128"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13621":{
+		"item_id":"13621",
+		"name":"Valkyrie Destroyer Warhorn",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Warhorn",
+			"damage_type":"Physical",
+			"min_power":"814",
+			"max_power":"900",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"90"
+					},
+					{
+						"attribute":"CritDamage",
+						"modifier":"5"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13626":{
+		"item_id":"13626",
+		"name":"Cleric's Destroyer Torch",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Torch",
+			"damage_type":"Physical",
+			"min_power":"789",
+			"max_power":"926",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Healing",
+						"modifier":"90"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"64"
+					},
+					{
+						"attribute":"Toughness",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13632":{
+		"item_id":"13632",
+		"name":"Carrion Destroyer Longbow",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"396",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"LongBow",
+			"damage_type":"Physical",
+			"min_power":"920",
+			"max_power":"1080",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"179"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"128"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"128"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13639":{
+		"item_id":"13639",
+		"name":"Carrion Destroyer Pistol",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Pistol",
+			"damage_type":"Physical",
+			"min_power":"876",
+			"max_power":"1029",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"90"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"64"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13646":{
+		"item_id":"13646",
+		"name":"Carrion Destroyer Rifle",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"396",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Rifle",
+			"damage_type":"Physical",
+			"min_power":"986",
+			"max_power":"1205",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"179"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"128"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"128"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13657":{
+		"item_id":"13657",
+		"name":"Berserker's Destroyer Harpoon Gun",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"396",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Speargun",
+			"damage_type":"Physical",
+			"min_power":"905",
+			"max_power":"1000",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"179"
+					},
+					{
+						"attribute":"Precision",
+						"modifier":"128"
+					},
+					{
+						"attribute":"CritDamage",
+						"modifier":"9"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13660":{
+		"item_id":"13660",
+		"name":"Carrion Destroyer Dagger",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Dagger",
+			"damage_type":"Physical",
+			"min_power":"924",
+			"max_power":"981",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"90"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"64"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13667":{
+		"item_id":"13667",
+		"name":"Carrion Destroyer Sword",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Sword",
+			"damage_type":"Physical",
+			"min_power":"905",
+			"max_power":"1000",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"90"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"64"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13674":{
+		"item_id":"13674",
+		"name":"Carrion Destroyer Mace",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Mace",
+			"damage_type":"Physical",
+			"min_power":"895",
+			"max_power":"1010",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"90"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"64"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13681":{
+		"item_id":"13681",
+		"name":"Carrion Destroyer Shield",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Shield",
+			"damage_type":"Physical",
+			"min_power":"806",
+			"max_power":"909",
+			"defense":"61",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"90"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"64"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13688":{
+		"item_id":"13688",
+		"name":"Carrion Destroyer Axe",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"264",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Axe",
+			"damage_type":"Physical",
+			"min_power":"857",
+			"max_power":"1048",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"90"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"64"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"64"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13695":{
+		"item_id":"13695",
+		"name":"Carrion Destroyer Greatsword",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"396",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Greatsword",
+			"damage_type":"Physical",
+			"min_power":"995",
+			"max_power":"1100",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"179"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"128"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"128"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13702":{
+		"item_id":"13702",
+		"name":"Carrion Destroyer Maul",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"396",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Hammer",
+			"damage_type":"Physical",
+			"min_power":"985",
+			"max_power":"1111",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"ConditionDamage",
+						"modifier":"179"
+					},
+					{
+						"attribute":"Power",
+						"modifier":"128"
+					},
+					{
+						"attribute":"Vitality",
+						"modifier":"128"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"13712":{
+		"item_id":"13712",
+		"name":"Berserker's Destroyer Pike",
+		"description":"",
+		"type":"Weapon",
+		"level":"80",
+		"rarity":"Exotic",
+		"vendor_value":"396",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"weapon":{
+			"type":"Harpoon",
+			"damage_type":"Physical",
+			"min_power":"905",
+			"max_power":"1000",
+			"defense":"0",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"179"
+					},
+					{
+						"attribute":"Precision",
+						"modifier":"128"
+					},
+					{
+						"attribute":"CritDamage",
+						"modifier":"9"
+					}
+				]
+			},
+			"suffix_item_id":""
+		}
+	},
+	"12128":{
+		"item_id":"12128",
+		"name":"Omnomberry",
+		"description":"Ingredient",
+		"type":"CraftingMaterial",
+		"level":"80",
+		"rarity":"Basic",
+		"vendor_value":"9",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		]
+		
+	},
+	"19983":{
+		"item_id":"19983",
+		"name":"Mystic Forge Stone",
+		"description":"Take this stone to the mystic forge to have Zommoros forge something special for you.",
+		"type":"Gizmo",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"32",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"AccountBound",
+			"NoSell"
+		],
+		"restrictions":[
+			
+		],
+		"gizmo":{
+			"type":"Default"
+		}
+		
+	},
+	"35976":{
+		"item_id":"35976",
+		"name":"Personal Trader Express",
+		"description":"Double-click to summon a personal Black Lion Delivery Agent for 5 minutes, allowing you to pick up trading post purchases and profits. Reusable.",
+		"type":"Gizmo",
+		"level":"0",
+		"rarity":"Exotic",
+		"vendor_value":"32",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"PvpLobby",
+			"Wvw"
+		],
+		"flags":[
+			"AccountBound",
+			"NoSalvage",
+			"NoSell"
+		],
+		"restrictions":[
+			
+		],
+		"gizmo":{
+			"type":"RentableContractNpc"
+		}
+		
+	},
+	"38506":{
+		"item_id":"38506",
+		"name":"Permanent Self-Style Hair Kit",
+		"description":"Double-click to modify your appearance settings for hair style, hair color, horns, and facial hair.",
+		"type":"Gizmo",
+		"level":"0",
+		"rarity":"Exotic",
+		"vendor_value":"32",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"PvpLobby",
+			"Wvw"
+		],
+		"flags":[
+			"AccountBound",
+			"NoMysticForge",
+			"NoSalvage",
+			"NoSell"
+		],
+		"restrictions":[
+			
+		],
+		"gizmo":{
+			"type":"UnlimitedConsumable"
+		}
+		
+	},
+	"43248":{
+		"item_id":"43248",
+		"name":"Mini Reef Rider",
+		"description":"Double-click to summon this miniature to follow you around. Only one miniature may be in use at a time.",
+		"type":"MiniPet",
+		"level":"0",
+		"rarity":"Exotic",
+		"vendor_value":"50",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"PvpLobby",
+			"Wvw"
+		],
+		"flags":[
+			"NoMysticForge",
+			"NoSalvage",
+			"NoSell",
+			"SoulBindOnUse"
+		],
+		"restrictions":[
+			
+		]
+		
+	},
+	"13267":{
+		"item_id":"13267",
+		"name":"Turquoise Copper Amulet of Vitality",
+		"description":"",
+		"type":"Trinket",
+		"level":"20",
+		"rarity":"Fine",
+		"vendor_value":"48",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"trinket":{
+			"type":"Amulet",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Vitality",
+						"modifier":"12"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":"24465"
+		}
+		
+	},
+	"13268":{
+		"item_id":"13268",
+		"name":"Tiger's Eye Copper Stud of Precision",
+		"description":"",
+		"type":"Trinket",
+		"level":"15",
+		"rarity":"Fine",
+		"vendor_value":"25",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"trinket":{
+			"type":"Accessory",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Precision",
+						"modifier":"6"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":"24467"
+		}
+		
+	},
+	"13269":{
+		"item_id":"13269",
+		"name":"Tiger's Eye Copper Ring of Precision",
+		"description":"",
+		"type":"Trinket",
+		"level":"15",
+		"rarity":"Fine",
+		"vendor_value":"30",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"trinket":{
+			"type":"Ring",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Precision",
+						"modifier":"7"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":"24467"
+		}
+		
+	},
+	"8905":{
+		"item_id":"8905",
+		"name":"Small Bag of Goods",
+		"description":"Double-click to open.",
+		"type":"Container",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"0",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"container":{
+			"type":"Default"
+		}
+		
+	},
+	"12741":{
+		"item_id":"12741",
+		"name":"Unidentified Brown Dye",
+		"description":"Double-click to identify a Common, Uncommon or Rare Dye from the Brown spectrum.",
+		"type":"Container",
+		"level":"0",
+		"rarity":"Rare",
+		"vendor_value":"0",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"NoSell"
+		],
+		"restrictions":[
+			
+		],
+		"container":{
+			"type":"GiftBox"
+		}
+		
+	},
+	"19997":{
+		"item_id":"19997",
+		"name":"Experience Booster",
+		"description":"Double-click to gain a buff that gives an additional 50% experience from kills for one hour.",
+		"type":"Consumable",
+		"level":"0",
+		"rarity":"Masterwork",
+		"vendor_value":"0",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"AccountBound",
+			"NoSell"
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"Halloween"
+		}
+		
+	},
+	"68":{
+		"item_id":"68",
+		"name":"Country Coat",
+		"description":"",
+		"type":"Armor",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"6",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"NotUpgradeable"
+		],
+		"restrictions":[
+			
+		],
+		"armor":{
+			"type":"Coat",
+			"weight_class":"Light",
+			"defense":"23",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"4"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":""
+		}
+		
+	},
+	"71":{
+		"item_id":"71",
+		"name":"Mighty Worn Chain Greaves",
+		"description":"",
+		"type":"Armor",
+		"level":"6",
+		"rarity":"Fine",
+		"vendor_value":"11",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"armor":{
+			"type":"Boots",
+			"weight_class":"Heavy",
+			"defense":"19",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"2"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":""
+		}
+		
+	},
+	"72":{
+		"item_id":"72",
+		"name":"Berserker's Duelist Mask of the Afflicted",
+		"description":"",
+		"type":"Armor",
+		"level":"62",
+		"rarity":"Exotic",
+		"vendor_value":"265",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"armor":{
+			"type":"Helm",
+			"weight_class":"Medium",
+			"defense":"68",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"31"
+					},
+					{
+						"attribute":"Precision",
+						"modifier":"22"
+					},
+					{
+						"attribute":"CritDamage",
+						"modifier":"2"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":"24687"
+		}
+		
+	},
+	"106":{
+		"item_id":"106",
+		"name":"Berserker's Duelist Coat of the Dolyak",
+		"description":"",
+		"type":"Armor",
+		"level":"62",
+		"rarity":"Exotic",
+		"vendor_value":"318",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"armor":{
+			"type":"Coat",
+			"weight_class":"Medium",
+			"defense":"238",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"69"
+					},
+					{
+						"attribute":"Precision",
+						"modifier":"49"
+					},
+					{
+						"attribute":"CritDamage",
+						"modifier":"4"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":"24699"
+		}
+		
+	},
+	"635":{
+		"item_id":"635",
+		"name":"Berserker's Duelist Pauldrons of the Citadel",
+		"description":"",
+		"type":"Armor",
+		"level":"62",
+		"rarity":"Exotic",
+		"vendor_value":"234",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"armor":{
+			"type":"Shoulders",
+			"weight_class":"Medium",
+			"defense":"68",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"23"
+					},
+					{
+						"attribute":"Precision",
+						"modifier":"16"
+					},
+					{
+						"attribute":"CritDamage",
+						"modifier":"1"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":"24741"
+		}
+		
+	},
+	"653":{
+		"item_id":"653",
+		"name":"Superior Studded Gloves",
+		"description":"",
+		"type":"Armor",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"4",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"NotUpgradeable"
+		],
+		"restrictions":[
+			
+		],
+		"armor":{
+			"type":"Gloves",
+			"weight_class":"Medium",
+			"defense":"12",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"1"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":""
+		}
+		
+	},
+	"1164":{
+		"item_id":"1164",
+		"name":"Superior Studded Pants",
+		"description":"",
+		"type":"Armor",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"5",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"NotUpgradeable"
+		],
+		"restrictions":[
+			
+		],
+		"armor":{
+			"type":"Leggings",
+			"weight_class":"Medium",
+			"defense":"16",
+			"infusion_slots":[
+				
+			],
+			"infix_upgrade":{
+				"attributes":[
+					{
+						"attribute":"Power",
+						"modifier":"3"
+					}
+					
+				]
+				
+			},
+			"suffix_item_id":""
+		}
+		
+	},
+	"8939":{
+		"item_id":"8939",
+		"name":"Ogre Bag",
+		"description":"10 Slots",
+		"type":"Bag",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"7",
+		"game_types":[
+			"Activity",
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"bag":{
+			"no_sell_or_sort":"0",
+			"size":"10"
+		}
+		
+	},
+	"8470":{
+		"item_id":"8470",
+		"name":"Transmutation Stone",
+		"description":"Double-click to combine the appearance of one item with the attributes of another. Items must be of the same type. Usable on items up to level 79.",
+		"type":"Consumable",
+		"level":"0",
+		"rarity":"Masterwork",
+		"vendor_value":"57",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"AccountBound",
+			"NoSalvage",
+			"NoSell"
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"Transmutation"
+		}
+		
+	},
+	"8473":{
+		"item_id":"8473",
+		"name":"Supply Package",
+		"description":"Supply can be used to build various siege engines and repair structures in WvW.",
+		"type":"Consumable",
+		"level":"0",
+		"rarity":"Fine",
+		"vendor_value":"0",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"SoulbindOnAcquire"
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"Immediate"
+		}
+		
+	},
+	"8486":{
+		"item_id":"8486",
+		"name":"Extended Potion of Nightmare Court Slaying",
+		"description":"",
+		"type":"Consumable",
+		"level":"80",
+		"rarity":"Rare",
+		"vendor_value":"1",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			"SoulbindOnAcquire"
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"Utility",
+			"duration_ms":"7200000",
+			"description":"+10% damage vs Nightmare Court\n-10% damage from Nightmare Court\n+10 Experience from kills"
+		}
+		
+	},
+	"8495":{
+		"item_id":"8495",
+		"name":"Flask of Ooze Spirits",
+		"description":"",
+		"type":"Consumable",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"2",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"Booze"
+		}
+		
+	},
+	"8535":{
+		"item_id":"8535",
+		"name":"Grumble Cake",
+		"description":"<c=@flavor>Goes down rough...</c>",
+		"type":"Consumable",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"0",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"Food",
+			"duration_ms":"600000",
+			"description":"+20 vitality\n+10 Experience from kills"
+		}
+		
+	},
+	"9638":{
+		"item_id":"9638",
+		"name":"Recipe: Tray of Banana Cream Pies",
+		"description":"Recipe Unlock: Double-click to unlock the Chef recipe for Tray of Banana Cream Pies.",
+		"type":"Consumable",
+		"level":"25",
+		"rarity":"Fine",
+		"vendor_value":"16",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"Wvw"
+		],
+		"flags":[
+			
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"Unlock"
+		}
+		
+	},
+	"20017":{
+		"item_id":"20017",
+		"name":"Trading Post Express",
+		"description":"Double-click to summon a Black Lion Delivery Agent for 15 minutes, allowing you and your allies to pick up trading post purchases and profits. Single-use.",
+		"type":"Consumable",
+		"level":"0",
+		"rarity":"Basic",
+		"vendor_value":"2",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"PvpLobby",
+			"Wvw"
+		],
+		"flags":[
+			"AccountBound",
+			"NoSalvage",
+			"NoSell"
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"ContractNpc"
+		}
+		
+	},
+	"35987":{
+		"item_id":"35987",
+		"name":"Self-Style Hair Kit",
+		"description":"Double-click to modify your appearance settings for hair style, hair color, horns, and facial hair. This kit is consumed on accepting a new appearance.",
+		"type":"Consumable",
+		"level":"0",
+		"rarity":"Masterwork",
+		"vendor_value":"8",
+		"game_types":[
+			"Dungeon",
+			"Pve",
+			"PvpLobby",
+			"Wvw"
+		],
+		"flags":[
+			"AccountBound",
+			"NoMysticForge",
+			"NoSalvage",
+			"NoSell"
+		],
+		"restrictions":[
+			
+		],
+		"consumable":{
+			"type":"AppearanceChange"
+		}
+		
+	}
+}
