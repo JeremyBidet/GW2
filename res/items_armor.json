@@ -1,0 +1,292 @@
+"122":{
+    "item_id":"122",
+    "name":"Traveler's Acolyte Coat of Rage",
+    "description":"",
+    "type":"Armor",
+    "level":"75",
+    "rarity":"Exotic",
+    "vendor_value":"372",
+    "game_types":[
+        "Activity",
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        
+    ],
+    "restrictions":[
+        
+    ],
+    "armor":{
+        "type":"Coat",
+        "weight_class":"Light",
+        "defense":"287",
+        "infusion_slots":[
+            
+        ],
+        "infix_upgrade":{
+            "buff":{
+                "skill_id":"863",
+                "description":"+3% Magic Find"
+            },
+            "attributes":[
+                {
+                    "attribute":"ConditionDamage",
+                    "modifier":"65"
+                },
+                {
+                    "attribute":"Power",
+                    "modifier":"65"
+                }
+            ]
+        },
+        "suffix_item_id":"24717"
+    }
+},
+"71":{
+    "item_id":"71",
+    "name":"MightyWornChainGreaves",
+    "description":"",
+    "type":"Armor",
+    "level":"6",
+    "rarity":"Fine",
+    "vendor_value":"11",
+    "game_types":[
+        "Activity",
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        
+    ],
+    "restrictions":[
+        
+    ],
+    "armor":{
+        "type":"Boots",
+        "weight_class":"Heavy",
+        "defense":"19",
+        "infusion_slots":[
+            
+        ],
+        "infix_upgrade":{
+            "attributes":[
+                {
+                    "attribute":"Power",
+                    "modifier":"2"
+                }
+            ]
+        },
+        "suffix_item_id":""
+    }
+},
+"72":{
+    "item_id":"72",
+    "name":"Berserker'sDuelistMaskoftheAfflicted",
+    "description":"",
+    "type":"Armor",
+    "level":"62",
+    "rarity":"Exotic",
+    "vendor_value":"265",
+    "game_types":[
+        "Activity",
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        
+    ],
+    "restrictions":[
+        
+    ],
+    "armor":{
+        "type":"Helm",
+        "weight_class":"Medium",
+        "defense":"68",
+        "infusion_slots":[
+            
+        ],
+        "infix_upgrade":{
+            "attributes":[
+                {
+                    "attribute":"Power",
+                    "modifier":"31"
+                },
+                {
+                    "attribute":"Precision",
+                    "modifier":"22"
+                },
+                {
+                    "attribute":"CritDamage",
+                    "modifier":"2"
+                }
+            ]
+        },
+        "suffix_item_id":"24687"
+    }
+},
+"635":{
+    "item_id":"635",
+    "name":"Berserker'sDuelistPauldronsoftheCitadel",
+    "description":"",
+    "type":"Armor",
+    "level":"62",
+    "rarity":"Exotic",
+    "vendor_value":"234",
+    "game_types":[
+        "Activity",
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        
+    ],
+    "restrictions":[
+        
+    ],
+    "armor":{
+        "type":"Shoulders",
+        "weight_class":"Medium",
+        "defense":"68",
+        "infusion_slots":[
+            
+        ],
+        "infix_upgrade":{
+            "attributes":[
+                {
+                    "attribute":"Power",
+                    "modifier":"23"
+                },
+                {
+                    "attribute":"Precision",
+                    "modifier":"16"
+                },
+                {
+                    "attribute":"CritDamage",
+                    "modifier":"1"
+                }
+            ]
+        },
+        "suffix_item_id":"24741"
+    }
+},
+"653":{
+    "item_id":"653",
+    "name":"SuperiorStuddedGloves",
+    "description":"",
+    "type":"Armor",
+    "level":"0",
+    "rarity":"Basic",
+    "vendor_value":"4",
+    "game_types":[
+        "Activity",
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        "NotUpgradeable"
+    ],
+    "restrictions":[
+        
+    ],
+    "armor":{
+        "type":"Gloves",
+        "weight_class":"Medium",
+        "defense":"12",
+        "infusion_slots":[
+            
+        ],
+        "infix_upgrade":{
+            "attributes":[
+                {
+                    "attribute":"Power",
+                    "modifier":"1"
+                }
+            ]
+        },
+        "suffix_item_id":""
+    }
+},
+"1164":{
+    "item_id":"1164",
+    "name":"SuperiorStuddedPants",
+    "description":"",
+    "type":"Armor",
+    "level":"0",
+    "rarity":"Basic",
+    "vendor_value":"5",
+    "game_types":[
+        "Activity",
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        "NotUpgradeable"
+    ],
+    "restrictions":[
+        
+    ],
+    "armor":{
+        "type":"Leggings",
+        "weight_class":"Medium",
+        "defense":"16",
+        "infusion_slots":[
+            
+        ],
+        "infix_upgrade":{
+            "attributes":[
+                {
+                    "attribute":"Power",
+                    "modifier":"3"
+                }
+            ]
+        },
+        "suffix_item_id":""
+    }
+},
+"3943":{
+    "item_id":"3943",
+    "name":"ClothAquabreather",
+    "description":"<c=@flavor>\"Goodforbreathing.\"<br>—Lugung</c>",
+    "type":"Armor",
+    "level":"20",
+    "rarity":"Fine",
+    "vendor_value":"30",
+    "game_types":[
+        "Activity",
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        "NoSalvage",
+        "NoSell",
+        "SoulbindOnAcquire"
+    ],
+    "restrictions":[
+        
+    ],
+    "armor":{
+        "type":"HelmAquatic",
+        "weight_class":"Light",
+        "defense":"13",
+        "infusion_slots":[
+            
+        ],
+        "infix_upgrade":{
+            "attributes":[
+                {
+                    "attribute":"Healing",
+                    "modifier":"6"
+                }
+            ]
+        },
+        "suffix_item_id":""
+    }
+}

@@ -7,9 +7,8 @@ public enum Restriction {
 	NORN("Norn"),
 	CHARR("Charr"),
 	SYLVARI("Sylvari"),
-	
 	GUARDIAN("Guardian"),
-	WARRIROR("Warrior");
+	WARRIOR("Warrior");
 	
 	private String techName;
 

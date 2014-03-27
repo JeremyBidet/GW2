@@ -1,0 +1,254 @@
+"24":{
+    "item_id":"24",
+    "name":"Sealed Package of Snowballs",
+    "description":"Open this package to create several snowballs that can hit anyone else holding a snowball.",
+    "type":"Consumable",
+    "level":"0",
+    "rarity":"Basic",
+    "vendor_value":"0",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"Generic"
+    }
+    
+},
+"19997":{
+    "item_id":"19997",
+    "name":"Experience Booster",
+    "description":"Double-click to gain a buff that gives an additional 50% experience from kills for one hour.",
+    "type":"Consumable",
+    "level":"0",
+    "rarity":"Masterwork",
+    "vendor_value":"0",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        "AccountBound",
+        "NoSell"
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"Halloween"
+    }
+    
+},
+"8470":{
+    "item_id":"8470",
+    "name":"Transmutation Stone",
+    "description":"Double-click to combine the appearance of one item with the attributes of another. Items must be of the same type. Usable on items up to level 79.",
+    "type":"Consumable",
+    "level":"0",
+    "rarity":"Masterwork",
+    "vendor_value":"57",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        "AccountBound",
+        "NoSalvage",
+        "NoSell"
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"Transmutation"
+    }
+    
+},
+"8473":{
+    "item_id":"8473",
+    "name":"Supply Package",
+    "description":"Supply can be used to build various siege engines and repair structures in WvW.",
+    "type":"Consumable",
+    "level":"0",
+    "rarity":"Fine",
+    "vendor_value":"0",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        "SoulbindOnAcquire"
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"Immediate"
+    }
+    
+},
+"8486":{
+    "item_id":"8486",
+    "name":"Extended Potion of Nightmare Court Slaying",
+    "description":"",
+    "type":"Consumable",
+    "level":"80",
+    "rarity":"Rare",
+    "vendor_value":"1",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        "SoulbindOnAcquire"
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"Utility",
+        "duration_ms":"7200000",
+        "description":"+10% damage vs Nightmare Court\n-10% damage from Nightmare Court\n+10 Experience from kills"
+    }
+    
+},
+"8495":{
+    "item_id":"8495",
+    "name":"Flask of Ooze Spirits",
+    "description":"",
+    "type":"Consumable",
+    "level":"0",
+    "rarity":"Basic",
+    "vendor_value":"2",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"Booze"
+    }
+    
+},
+"8535":{
+    "item_id":"8535",
+    "name":"Grumble Cake",
+    "description":"<c=@flavor>Goes down rough...</c>",
+    "type":"Consumable",
+    "level":"0",
+    "rarity":"Basic",
+    "vendor_value":"0",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"Food",
+        "duration_ms":"600000",
+        "description":"+20 vitality\n+10 Experience from kills"
+    }
+    
+},
+"9638":{
+    "item_id":"9638",
+    "name":"Recipe: Tray of Banana Cream Pies",
+    "description":"Recipe Unlock: Double-click to unlock the Chef recipe for Tray of Banana Cream Pies.",
+    "type":"Consumable",
+    "level":"25",
+    "rarity":"Fine",
+    "vendor_value":"16",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "Wvw"
+    ],
+    "flags":[
+        
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"Unlock"
+    }
+    
+},
+"20017":{
+    "item_id":"20017",
+    "name":"Trading Post Express",
+    "description":"Double-click to summon a Black Lion Delivery Agent for 15 minutes, allowing you and your allies to pick up trading post purchases and profits. Single-use.",
+    "type":"Consumable",
+    "level":"0",
+    "rarity":"Basic",
+    "vendor_value":"2",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "PvpLobby",
+        "Wvw"
+    ],
+    "flags":[
+        "AccountBound",
+        "NoSalvage",
+        "NoSell"
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"ContractNpc"
+    }
+    
+},
+"35987":{
+    "item_id":"35987",
+    "name":"Self-Style Hair Kit",
+    "description":"Double-click to modify your appearance settings for hair style, hair color, horns, and facial hair. This kit is consumed on accepting a new appearance.",
+    "type":"Consumable",
+    "level":"0",
+    "rarity":"Masterwork",
+    "vendor_value":"8",
+    "game_types":[
+        "Dungeon",
+        "Pve",
+        "PvpLobby",
+        "Wvw"
+    ],
+    "flags":[
+        "AccountBound",
+        "NoMysticForge",
+        "NoSalvage",
+        "NoSell"
+    ],
+    "restrictions":[
+        
+    ],
+    "consumable":{
+        "type":"AppearanceChange"
+    }
+    
+}
