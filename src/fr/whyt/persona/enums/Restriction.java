@@ -9,22 +9,20 @@ public enum Restriction {
 	SYLVARI("Sylvari"),
 	GUARDIAN("Guardian"),
 	WARRIOR("Warrior");
-	
-	private String techName;
+
+	private String name;
 
 	private Restriction(String name) {
-		this.techName = name;
+		this.name = name;
 	}
 
 	public static Restriction resolve(String name) {
-
 		for (Restriction state : Restriction.values()) {
-			if (state.techName.equals(name)) {
+			if (state.name.equals(name)) {
 				return state;
 			}
 		}
-		
 		throw new IllegalArgumentException(name);
 	}
-	
+
 }
