@@ -26,27 +26,19 @@ public enum Rarity {
 	LEGENDARY("Legendary"),
 	JUNK("Junk");
 	
-	private String type;
+	private String name;
 
-	private Rarity(String type) {
-		this.type = type;
+	private Rarity(String name) {
+		this.name = name;
 	}
 
-	public static Rarity resolve(String type) {
+	public static Rarity resolve(String name) {
 		for (Rarity value : Rarity.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
-	}
-	
-	public static String union() {
-		StringBuilder sb = new StringBuilder();
-		for(Rarity t : Rarity.values()) {
-			sb.append(t.name()).append("|");
-		}
-		return sb.deleteCharAt(sb.length()-1).toString();
+		throw new IllegalArgumentException(name);
 	}
 	
 }

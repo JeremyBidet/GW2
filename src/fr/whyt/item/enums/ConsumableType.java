@@ -13,19 +13,19 @@ public enum ConsumableType {
 	IMMEDIATE("Immediate"),
 	BOOZE("Booze");
 	
-	private String type;
+	private String name;
 
-	private ConsumableType(String type) {
-		this.type = type;
+	private ConsumableType(String name) {
+		this.name = name;
 	}
 
-	public static ConsumableType resolve(String type) {
+	public static ConsumableType resolve(String name) {
 		for (ConsumableType value : ConsumableType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

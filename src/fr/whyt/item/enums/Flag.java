@@ -13,19 +13,19 @@ public enum Flag {
 	NOT_UPGRADEABLE("NotUpgradeable"),
 	UNIQUE("Unique");
 	
-	private String type;
+	private String name;
 
-	private Flag(String type) {
-		this.type = type;
+	private Flag(String name) {
+		this.name = name;
 	}
 
-	public static Flag resolve(String type) {
+	public static Flag resolve(String name) {
 		for (Flag value : Flag.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 	
 }

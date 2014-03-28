@@ -4,23 +4,23 @@ public enum BagModifier {
 
 	NO_SELL_OR_SORT("no_sell_or_sort");
 
-	private String type;
+	private String name;
 
-	private BagModifier(String type) {
-		this.type = type;
+	private BagModifier(String name) {
+		this.name = name;
 	}
-
-	public static BagModifier resolve(String type) {
+	
+	public String getName() {
+		return name;
+	}
+	
+	public static BagModifier resolve(String name) {
 		for (BagModifier value : BagModifier.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
-
-	public String getTechName() {
-		return type;
-	}
-
+	
 }

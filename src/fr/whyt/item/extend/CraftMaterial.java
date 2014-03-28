@@ -10,7 +10,7 @@ import fr.whyt.item.enums.Flag;
 import fr.whyt.item.enums.GameType;
 import fr.whyt.item.enums.Rarity;
 import fr.whyt.item.enums.Type;
-import fr.whyt.item.enums.WeightClass;
+import fr.whyt.item.enums.WeightType;
 import fr.whyt.persona.enums.Restriction;
 
 /**
@@ -18,7 +18,7 @@ import fr.whyt.persona.enums.Restriction;
  * Représente un objet de type matériaux de recette dans le jeu.<br>
  * Ne possède aucun champs supplémentaires.<br>
  * @see ArmorType
- * @see WeightClass
+ * @see WeightType
  * @see InfusionSlot
  * @see InfixUpgrade
  * @author WhyT

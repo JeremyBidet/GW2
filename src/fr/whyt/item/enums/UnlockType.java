@@ -5,19 +5,19 @@ public enum UnlockType {
 	CRAFTING_RECIPE("CraftingRecipe"),
 	DYE("Dye");
 	
-	private String type;
+	private String name;
 
-	private UnlockType(String type) {
-		this.type = type;
+	private UnlockType(String name) {
+		this.name = name;
 	}
 
-	public static UnlockType resolve(String type) {
+	public static UnlockType resolve(String name) {
 		for (UnlockType value : UnlockType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

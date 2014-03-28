@@ -6,19 +6,19 @@ public enum GatheringType {
 	LOGGING("Logging"),
 	FORAGING("Foraging");
 	
-	private String type;
+	private String name;
 
-	private GatheringType(String type) {
-		this.type = type;
+	private GatheringType(String name) {
+		this.name = name;
 	}
 
-	public static GatheringType resolve(String type) {
+	public static GatheringType resolve(String name) {
 		for (GatheringType value : GatheringType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

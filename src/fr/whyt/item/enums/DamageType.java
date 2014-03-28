@@ -7,19 +7,19 @@ public enum DamageType {
 	FIRE("Fire"),
 	LIGHTNING("Lightning");
 	
-	private String type;
+	private String name;
 
-	private DamageType(String type) {
-		this.type = type;
+	private DamageType(String name) {
+		this.name = name;
 	}
 
-	public static DamageType resolve(String type) {
+	public static DamageType resolve(String name) {
 		for (DamageType value : DamageType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

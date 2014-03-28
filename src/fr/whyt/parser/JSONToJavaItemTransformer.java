@@ -35,7 +35,7 @@ import fr.whyt.item.enums.Type;
 import fr.whyt.item.enums.UnlockType;
 import fr.whyt.item.enums.UpgradeComponentFlag;
 import fr.whyt.item.enums.UpgradeComponentType;
-import fr.whyt.item.enums.WeightClass;
+import fr.whyt.item.enums.WeightType;
 import fr.whyt.item.extend.Armor;
 import fr.whyt.item.extend.Back;
 import fr.whyt.item.extend.Bag;
@@ -147,7 +147,7 @@ public class JSONToJavaItemTransformer {
 			List<InfusionSlot> infusionSlots = parseInfusionSlots(armorObj);
 
 			armor = new Armor(ArmorType.resolve((String) armorObj.get("type")),
-					WeightClass.resolve((String) armorObj.get("weight_class")),
+					WeightType.resolve((String) armorObj.get("weight_class")),
 					Long.parseLong((String) armorObj.get("defense")),
 					infusionSlots, infixUpgrade);
 		}

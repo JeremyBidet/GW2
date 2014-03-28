@@ -6,19 +6,19 @@ public enum GizmoType {
 	RENTABLE_CONTRACT_NPC("RentableContractNpc"),
 	UNLIMITED_CONSUMABLE("UnlimitedConsumable");
 	
-	private String type;
+	private String name;
 
-	private GizmoType(String type) {
-		this.type = type;
+	private GizmoType(String name) {
+		this.name = name;
 	}
 
-	public static GizmoType resolve(String type) {
+	public static GizmoType resolve(String name) {
 		for (GizmoType value : GizmoType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

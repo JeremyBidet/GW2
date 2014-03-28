@@ -53,7 +53,7 @@ Name               | | |Type                      |Value
 :------------------|-|-|:-------------------------|:--------------------------
 *type*             | | | `ArmorType`              | <sub>CAOT` `BOOTS` `HELM` `SHOULDERS` `GLOVES` `LEGGINGS` `HELM_AQUATIC</sub>
 *weight_class*     | | | `WeightClass`            | <sub>LIGHT` `MEDIUM` `HEAVY` `CLOTHING</sub>
-*defense*           | || `Integer`                |
+*defense*          | | | `Integer`                |
 *infusion_slots*   | | | `List<InfusionSlot>`     |
 | | *flags*          | | `List<InfusionSlotFlag>` | <sub>DEFENSE` `OFFENSE` `UTILITY</sub>
 | | *item_id*        | | `Long`                   |

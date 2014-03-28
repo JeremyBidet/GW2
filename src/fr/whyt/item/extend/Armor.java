@@ -11,7 +11,7 @@ import fr.whyt.item.enums.Flag;
 import fr.whyt.item.enums.GameType;
 import fr.whyt.item.enums.Rarity;
 import fr.whyt.item.enums.Type;
-import fr.whyt.item.enums.WeightClass;
+import fr.whyt.item.enums.WeightType;
 import fr.whyt.persona.enums.Restriction;
 
 /**
@@ -20,7 +20,7 @@ import fr.whyt.persona.enums.Restriction;
  * Possède un type d'armure, une classe de poids, une valeur défensive, des emplacements d'infusions
  *  et des améliorations.<br>
  * @see ArmorType
- * @see WeightClass
+ * @see WeightType
  * @see InfusionSlot
  * @see InfixUpgrade
  * @author WhyT
@@ -28,7 +28,7 @@ import fr.whyt.persona.enums.Restriction;
 public class Armor extends Item {
 	
 	private final ArmorType armorType;
-	private final WeightClass weightClass;
+	private final WeightType weightClass;
 	private final Long defense;
 	private List<InfusionSlot> infusionSlots;
 	private InfixUpgrade infixUpgrade;
@@ -49,7 +49,7 @@ public class Armor extends Item {
 	 * @param flags					drapeaux de l'item ({@link Flag})
 	 * @param restrictions			restrictions de personnages de l'item ({@link Restriction})
 	 * @param armorType				type de l'armure ({@link ArmorType})
-	 * @param weightClass			classe de poids de l'armure ({@link WeightClass})
+	 * @param weightClass			classe de poids de l'armure ({@link WeightType})
 	 * @param defense				valeur défensive de l'armure
 	 * @param infusionSlots			emplacements d'infusions ({@link InfusionSlot})
 	 * @param infixUpgrade			améliorations de l'armure ({@link InfixUpgrade})
@@ -60,7 +60,7 @@ public class Armor extends Item {
 			Integer base_price, Integer bl_price, Long icon_file_if, String icon_file_signature,
 			List<GameType> game_type, List<Flag> flags, List<Restriction> restrictions,
 			// Armor fields
-			ArmorType armorType, WeightClass weightClass, Long defense, List<InfusionSlot> infusionSlots,
+			ArmorType armorType, WeightType weightClass, Long defense, List<InfusionSlot> infusionSlots,
 			InfixUpgrade infixUpgrade) {
 		
 		super(id, name, description, type, level, rarity, base_price, bl_price,
@@ -74,7 +74,7 @@ public class Armor extends Item {
 	}
 	/* ** Getters ** */
 	public ArmorType getArmorType() 								{ return armorType; }
-	public WeightClass getWeightClass() 							{ return weightClass; }
+	public WeightType getWeightClass() 							{ return weightClass; }
 	public Long getDefense() 										{ return defense; }
 	public List<InfusionSlot> getInfusionSlots()				 	{ return infusionSlots; }
 	public InfixUpgrade getInfixUpgrade() 							{ return infixUpgrade; }

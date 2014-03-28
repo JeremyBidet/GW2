@@ -7,19 +7,19 @@ public enum UpgradeComponentType {
 	RUNE("Rune"),
 	GEM("Gem");
 	
-	private String type;
+	private String name;
 
-	private UpgradeComponentType(String type) {
-		this.type = type;
+	private UpgradeComponentType(String name) {
+		this.name = name;
 	}
 
-	public static UpgradeComponentType resolve(String type) {
+	public static UpgradeComponentType resolve(String name) {
 		for (UpgradeComponentType value : UpgradeComponentType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

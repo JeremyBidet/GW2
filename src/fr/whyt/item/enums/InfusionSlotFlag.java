@@ -6,19 +6,19 @@ public enum InfusionSlotFlag {
 	OFFENSE("Offense"),
 	UTILITY("Utility");
 	
-	private String type;
+	private String name;
 
-	private InfusionSlotFlag(String type) {
-		this.type = type;
+	private InfusionSlotFlag(String name) {
+		this.name = name;
 	}
 
-	public static InfusionSlotFlag resolve(String type) {
+	public static InfusionSlotFlag resolve(String name) {
 		for (InfusionSlotFlag value : InfusionSlotFlag.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

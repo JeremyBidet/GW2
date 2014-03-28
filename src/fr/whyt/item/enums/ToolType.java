@@ -4,19 +4,19 @@ public enum ToolType {
 	
 	SALVAGE("Salvage");
 	
-	private String type;
+	private String name;
 
-	private ToolType(String type) {
-		this.type = type;
+	private ToolType(String name) {
+		this.name = name;
 	}
 
-	public static ToolType resolve(String type) {
+	public static ToolType resolve(String name) {
 		for (ToolType value : ToolType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

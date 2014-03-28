@@ -5,19 +5,19 @@ public enum ContainerType {
 	DEFAULT("Default"),
 	GIFT_BOX("GiftBox");
 	
-	private String type;
+	private String name;
 
-	private ContainerType(String type) {
-		this.type = type;
+	private ContainerType(String name) {
+		this.name = name;
 	}
 
-	public static ContainerType resolve(String type) {
+	public static ContainerType resolve(String name) {
 		for (ContainerType value : ContainerType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

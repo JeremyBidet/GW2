@@ -6,18 +6,18 @@ public enum TrinketType {
 	RING("Ring"),
 	ACCESSORY("Accessory");
 	
-	private final String type;
+	private String name;
 	
-	private TrinketType(String type) {
-		this.type = type;
+	private TrinketType(String name) {
+		this.name = name;
 	}
 	
-	public static TrinketType resolve(String type) {
+	public static TrinketType resolve(String name) {
 		for (TrinketType value : TrinketType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 }

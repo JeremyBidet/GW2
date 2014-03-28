@@ -25,27 +25,19 @@ public enum AttributeType {
 	CRITICAL_DAMAGE("CritDamage"),
 	HEALING_POWER("Healing");
 
-	private String type;
+	private String name;
 
-	private AttributeType(String type) {
-		this.type = type;
+	private AttributeType(String name) {
+		this.name = name;
 	}
 
-	public static AttributeType resolve(String type) {
+	public static AttributeType resolve(String name) {
 		for (AttributeType state : AttributeType.values()) {
-			if (state.type.equals(type)) {
+			if (state.name.equals(name)) {
 				return state;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
-	
-	public static String union() {
-		StringBuilder sb = new StringBuilder();
-		for(AttributeType t : AttributeType.values()) {
-			sb.append(t.name()).append("|");
-		}
-		return sb.deleteCharAt(sb.length()-1).toString();
-	}
-	
+
 }

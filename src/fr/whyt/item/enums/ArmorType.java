@@ -10,19 +10,19 @@ public enum ArmorType {
 	COAT("Coat"),
 	HELM_AQUATIC("HelmAquatic");
 	
-	private final String type;
+	private String name;
 	
-	private ArmorType(String type) {
-		this.type = type;
+	private ArmorType(String name) {
+		this.name = name;
 	}
 	
-	public static ArmorType resolve(String type) {
+	public static ArmorType resolve(String name) {
 		for (ArmorType state : ArmorType.values()) {
-			if (state.type.equals(type)) {
+			if (state.name.equals(name)) {
 				return state;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

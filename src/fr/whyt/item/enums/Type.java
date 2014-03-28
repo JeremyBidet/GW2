@@ -30,26 +30,19 @@ public enum Type {
 	UPGRADE_COMPONENT("Upgrade Component"),
 	WEAPON("Weapon");
 	
-	private String type;
+	private String name;
 
-	private Type(String type) {
-		this.type = type;
+	private Type(String name) {
+		this.name = name;
 	}
 
-	public static Type resolve(String type) {
+	public static Type resolve(String name) {
 		for (Type value : Type.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 	
-	public static String union() {
-		StringBuilder sb = new StringBuilder();
-		for(Type t : Type.values()) {
-			sb.append(t.name()).append("|");
-		}
-		return sb.deleteCharAt(sb.length()-1).toString();
-	}
 }

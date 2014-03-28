@@ -4,7 +4,7 @@ public enum UpgradeComponentFlag {
 	
 	AXE("Axe"),
 	LONGBOW("LongBow"),
-	SHOTBOW("ShortBow"),
+	SHORTBOW("ShortBow"),
 	DAGGER("Dagger"),
 	FOCUS("Focus"),
 	GREATSWORD("Greatsword"),
@@ -26,19 +26,19 @@ public enum UpgradeComponentFlag {
 	LIGHT_ARMOR("LightArmor"),
 	MEDIUM_ARMOR("MediumArmor");
 	
-	private String type;
+	private String name;
 
-	private UpgradeComponentFlag(String type) {
-		this.type = type;
+	private UpgradeComponentFlag(String name) {
+		this.name = name;
 	}
 
-	public static UpgradeComponentFlag resolve(String type) {
+	public static UpgradeComponentFlag resolve(String name) {
 		for (UpgradeComponentFlag value : UpgradeComponentFlag.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
-		throw new IllegalArgumentException(type);
+		throw new IllegalArgumentException(name);
 	}
 
 }

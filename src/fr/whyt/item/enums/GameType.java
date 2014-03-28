@@ -8,19 +8,19 @@ public enum GameType {
 	WVW("WvW"),
 	PVP("PvP");
 	
-	public final String type;
+	public String name;
 	
-	private GameType(String type) {
-		this.type = type;
+	private GameType(String name) {
+		this.name = name;
 	}
 	
-	public String getType() {
-		return this.type;
+	public String getName() {
+		return this.name;
 	}
 	
-	public static GameType resolve(String type) {
+	public static GameType resolve(String name) {
 		for (GameType value : GameType.values()) {
-			if (value.type.equals(type)) {
+			if (value.name.equals(name)) {
 				return value;
 			}
 		}
