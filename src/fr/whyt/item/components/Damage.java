@@ -10,8 +10,8 @@ package fr.whyt.item.components;
  */
 public class Damage {
 	
-	private int lower;
-	private int higher;
+	private Integer lower;
+	private Integer higher;
 
 	public Damage(int higher, int lower) {
 		this.lower = lower;

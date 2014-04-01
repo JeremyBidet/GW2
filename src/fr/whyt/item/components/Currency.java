@@ -15,9 +15,9 @@ package fr.whyt.item.components;
  */
 public class Currency {
 	
-	private int gold;
-	private int silver;
-	private int bronze;
+	private Integer gold;
+	private Integer silver;
+	private Integer bronze;
 	
 	/**
 	 * Crée la monnaie du jeu.
